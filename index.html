@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamborghini</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+        
+    <header>
+        <!-- Botão para abrir o Menu Overlay -->
+        <a href="#menuOverlay" class="menu-btn"
+            style="display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="vertical-align: middle;">
+                <path d="M4 5h16" />
+                <path d="M4 12h16" />
+                <path d="M4 19h16" />
+            </svg>
+            <span data-i18n="menu">MENU</span>
+        </a>
+
+        <a href="index.html" class="logo">
+            <img src="imgs/logo_header_01.png.svg" alt="Lamborghini">
+        </a>
+
+        <div class="acoes">
+            <a href="#chat" class="chat" aria-label="Chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z">
+                    </path>
+                    <path
+                        d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1">
+                    </path>
+                </svg>
+            </a>
+            <a href="search.html" class="lupa" aria-label="Buscar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <a href="#" class="close-btn" id="closeBtn">✕ MENU</a>
+            <button type="button" class="lang-btn" data-i18n="language" aria-label="Open language selector">LANGUAGE</button>
+        </div>
+
+        <div class="language-panel" aria-label="Language selector">
+            <button type="button" class="lang-option active" data-lang="en">EN</button>
+            <button type="button" class="lang-option" data-lang="it">IT</button>
+            <button type="button" class="lang-option" data-lang="de">DE</button>
+            <button type="button" class="lang-option" data-lang="fr">FR</button>
+            <button type="button" class="lang-option" data-lang="pt">PT</button>
+        </div>
+
+        <div class="menu-content">
+
+            <div class="menu-column">
+                <a href="#" class="main-link" data-i18n="models">MODELS <span></span></a>
+                <a href="beyond.html" class="main-link" data-i18n="beyond">BEYOND <span></span></a>
+                <a href="museum.html" class="main-link" data-i18n="museum">MUSEUM <span></span></a>
+                <hr>
+                <a href="design.html" class="sub-link" data-i18n="design">Design</a>
+                <a href="#" class="sub-link" data-i18n="financial">Financial services</a>
+                <a href="#" class="sub-link" data-i18n="lounge">Lounge</a>
+            </div>
+
+            <div class="menu-column">
+                <a href="#" class="main-link" data-i18n="ownership">OWNERSHIP <span></span></a>
+                <a href="company.html" class="main-link" data-i18n="company">COMPANY <span></span></a>
+                <a href="#" class="main-link" data-i18n="store">STORE <span></span></a>
+                <hr>
+                <a href="#" class="sub-link" data-i18n="sustainability">Sustainability</a>
+                <a href="warranty-extension.html" class="sub-link" data-i18n="warranty">Warranty extension</a>
+                <a href="club.html" class="sub-link" data-i18n="club">Club</a>
+            </div>
+  
+            <div class="menu-column">
+                <a href="#" class="main-link" data-i18n="dealerships">DEALERSHIPS <span></span></a>
+                <a href="#" class="main-link" data-i18n="motorsport">MOTORSPORT <span></span></a>
+                <hr>
+                <a href="history.html" class="sub-link" data-i18n="history">History</a>
+                <a href="#" class="sub-link" data-i18n="driving">Driving Programs</a>
+                <a href="#" class="sub-link" data-i18n="podcast">Podcast</a>
+            </div>
+        </div>
+    </div>
+
+
+    <main>
+
+        <section class="carrosel">
+
+            <input type="checkbox" id="pause-control">
+
+            <div class="slide slide1" style="z-index: 10;">
+                <video autoplay muted loop class="media-bg">
+                    <source src="C:\html\imagem\Gravação de Tela 2026-10-08 140949" type="video/mp4">
+                </video>
+                <div class="slide-content">
+                    <p>THE QUANTUM OF DRIVING</p>
+                    <h1>REVUELTO SV</h1>
+                    <a href="revuelto-sv/revuelto-sv.html" class="btn-discover">DISCOVER MORE</a>
+                </div>
+            </div>
+
+            <div class="slide slide2" style="z-index: 5;">
+                <img src="imgs/miura.jpg" class="media-bg" alt="Miura SV">
+                <div class="slide-content">
+                    <p>WITH THE ASTRONAUT PAOLO NESPOLI</p>
+                    <h1>MIURA SV</h1>
+                    <a href="miura-sv/miura-sv.html" class="btn-discover">DISCOVER MORE</a>
+                </div>
+            </div>
+
+            <div class="slide slide3" style="z-index: 1;">
+                <img src="imgs/urus.jpg" class="media-bg" alt="Urus SE">
+                <div class="slide-content">
+                    <p>THE SUV'S MAXIMUM EXPRESSION</p>
+                    <h1>URUS SE PERFORMANTE</h1>
+                    <a href="urus-se/urus-se.html" class="btn-discover">DISCOVER MORE</a>
+                </div>
+            </div>
+
+            <div class="carrosel-indicadores">
+                <div class="indicador">
+                    <div class="progresso"></div>
+                </div>
+                <div class="indicador">
+                    <div class="progresso"></div>
+                </div>
+                <div class="indicador">
+                    <div class="progresso"></div>
+                </div>
+                <label for="pause-control" class="botao-pause"></label>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="carousel-container">
+
+                <button class="arrow arrow-left" id="prevBtn" onclick="prevSlide()">&#10094;</button>
+
+                <article class="slide active">
+                    <div class="badge-container">
+                        <img src="imgs/revuelto_letra.svg" alt="Revuelto Logo" class="badge-img">
+                    </div>
+                    <h2 id="slogan-revuelto" class="model-slogan">FROM NOW ON</h2>
+
+                    <div class="car-image-container">
+                        <img id="car-img-revuelto" src="imgs/revuelto.png" alt="Lamborghini Revuelto" class="car-image">
+                    </div>
+
+                    <div class="model-tabs">
+                        <button class="tab-btn"
+                            onclick="switchTab(this, 'car-img-revuelto', 'imgs/Revuelto_sv.png', 'slogan-revuelto', 'THE QUANTUM OF DRIVING')">REVUELTO
+                            SV</button>
+                        <button class="tab-btn active"
+                            onclick="switchTab(this, 'car-img-revuelto', 'imgs/revuelto.png', 'slogan-revuelto', 'FROM NOW ON')">REVUELTO</button>
+                    </div>
+
+                    <div class="action-bar">
+                        <a href="revuelto-sv/revuelto-sv.html" class="btn-primary">EXPLORE THE MODEL
+                            <span>&rarr;</span></a>
+                        <a href="configurador/configurator.html" class="action-link"><span>START CONFIGURATION</span> <span
+                                class="icon-box">&#11042;</span></a>
+                        <a href="#" class="action-link"><span>ENQUIRE</span> <span class="icon-box">&#9993;</span></a>
+                    </div>
+                </article>
+
+                <article class="slide">
+                    <div class="badge-container">
+                        <img src="imgs/urus_center_light.svg" alt="Urus Logo" class="badge-img">
+                    </div>
+                    <h2 id="slogan-urus" class="model-slogan">URUS AT ITS PEAK</h2>
+
+                    <div class="car-image-container">
+                        <img id="car-img-urus" src="imgs/urus_carro.png" alt="Lamborghini Urus" class="car-image">
+                    </div>
+
+                    <div class="model-tabs">
+                        <button class="tab-btn active"
+                            onclick="switchTab(this, 'car-img-urus', 'imgs/urus_carro.png', 'slogan-urus', 'URUS AT ITS PEAK')">URUS
+                            PERFORMANTE</button>
+                        <button class="tab-btn"
+                            onclick="switchTab(this, 'car-img-urus', 'imgs/urus_se.png', 'slogan-urus', 'DARE TO LIVE MORE')">URUS
+                            SE</button>
+                    </div>
+
+                    <div class="action-bar">
+                        <a href="urus-se/urus-se.html" class="btn-primary">EXPLORE THE MODELS <span>&rarr;</span></a>
+                        <a href="configurador/configurator.html" class="action-link"><span>START CONFIGURATION</span> <span
+                                class="icon-box">&#11042;</span></a>
+                        <a href="#" class="action-link"><span>ENQUIRE</span> <span class="icon-box">&#9993;</span></a>
+                    </div>
+                </article>
+
+                <article class="slide">
+                    <div class="badge-container">
+                        <img src="imgs/temario_letra.png" alt="Temerario Logo" class="badge-img">
+                    </div>
+                    <h2 class="model-slogan">YOU CAN'T HIDE WHO YOU ARE</h2>
+
+                    <div class="car-image-container">
+                        <img id="car-img-temerario" src="imgs/temario.png" alt="Lamborghini Temerario"
+                            class="car-image">
+                    </div>
+
+                    <div class="action-bar">
+                        <a href="#" class="btn-primary">EXPLORE THE MODEL <span>&rarr;</span></a>
+                        <a href="configurador/configurator.html" class="action-link"><span>START CONFIGURATION</span> <span
+                                class="icon-box">&#11042;</span></a>
+                        <a href="#" class="action-link"><span>ENQUIRE</span> <span class="icon-box">&#9993;</span></a>
+                    </div>
+                </article>
+
+                <button class="arrow arrow-right" id="nextBtn" onclick="nextSlide()">&#10095;</button>
+
+            </div>
+
+            <div class="dots">
+                <span class="dot active" onclick="setSlide(0)"></span>
+                <span class="dot" onclick="setSlide(1)"></span>
+                <span class="dot" onclick="setSlide(2)"></span>
+            </div>
+
+            <p class="disclaimer-text">
+                Revuelto: Combined energy consumption: 4,7 kWh/100 Km plus 15 l/100km; Combined CO2 emissions: 350 g/km;
+                Combined CO2 efficiency class: G; Combined fuel consumption with discharged battery: 17,9 l/100km; CO2
+                class with discharged battery: G; Revuelto SV: Under approval, not available for sale
+            </p>
+        </section>
+
+        <section class="dealer-section">
+            <img src="imgs/urus-se.2.webp" alt="Dealer Locator" class="dealer-section-bg">
+
+            <div class="dealer-section-content">
+                <h2 data-i18n="dealerLocator">DEALER LOCATOR</h2>
+                <a href="dealer-locator.html" class="btn-primary" data-i18n="findDealer">
+                    FIND YOUR DEALER <span>&rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="configurador">
+
+            <input type="radio" name="carro" id="aba1" checked>
+            <input type="radio" name="carro" id="aba2">
+            <input type="radio" name="carro" id="aba3">
+            <input type="radio" name="carro" id="aba4">
+            <input type="radio" name="carro" id="aba5">
+
+            <nav class="abas">
+                <label for="aba1">REVUELTO SV</label>
+                <label for="aba2">URUS SE PERFORMANTE</label>
+                <label for="aba3">TEMERARIO</label>
+                <label for="aba4">REVUELTO</label>
+                <label for="aba5">URUS SE</label>
+            </nav>
+
+            <div class="paineis">
+
+                <div class="painel painel1">
+                    <div class="painel-conteudo">
+                        <div class="painel-texto">
+                            <h2 class="subtitulo">CONFIGURE SEU</h2>
+                            <h1 class="titulo">REVUELTO SV</h1>
+                            <div class="botoes">
+                                <a href="https://configurator.lamborghini.com/configurator/model/32006-20111/MBV-21717-2027" class="botao botao-amarelo">
+                                    INICIAR CONFIGURAÇÃO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2 L21 7 V17 L12 22 L3 17 Z" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </a>
+                                <button type="button" class="botao botao-contorno" data-contact-model="Revuelto SV">
+                                    CONTATO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                        <path d="M3 5 L12 13 L21 5" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <img class="painel-carro" src="imgs/revuelto-sv.png" alt="Revuelto SV">
+                    </div>
+                    <p class="aviso">O veículo ainda não está à venda e, portanto, não está sujeito à Diretiva
+                        1999/94/CE. Os dados de consumo de combustível e emissões estão em fase de homologação.</p>
+                </div>
+
+                <div class="painel painel2">
+                    <div class="painel-conteudo">
+                        <div class="painel-texto">
+                            <h2 class="subtitulo">CONFIGURE SEU</h2>
+                            <h1 class="titulo">URUS SE PERFORMANTE</h1>
+                            <div class="botoes">
+                                <a href="https://configurator.lamborghini.com/configurator/model/32005-20111/MBV-24727-2027" class="botao botao-amarelo">
+                                    INICIAR CONFIGURAÇÃO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2 L21 7 V17 L12 22 L3 17 Z" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </a>
+                                <button type="button" class="botao botao-contorno" data-contact-model="Urus SE Performante">
+                                    CONTATO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                        <path d="M3 5 L12 13 L21 5" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <img class="painel-carro" src="imgs/urus-se-performante.png" alt="Urus SE Performante">
+                    </div>
+                    <p class="aviso">O veículo ainda não está à venda e, portanto, não está sujeito à Diretiva
+                        1999/94/CE.</p>
+                </div>
+
+                <!-- Carro 3: Temerario -->
+                <div class="painel painel3">
+                    <div class="painel-conteudo">
+                        <div class="painel-texto">
+                            <h2 class="subtitulo">CONFIGURE SEU</h2>
+                            <h1 class="titulo">TEMERARIO</h1>
+                            <div class="botoes">
+                                <a href="https://configurator.lamborghini.com/configurator/model/32007-20111/MBV-20007-2027" class="botao botao-amarelo">
+                                    INICIAR CONFIGURAÇÃO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2 L21 7 V17 L12 22 L3 17 Z" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </a>
+                                <button type="button" class="botao botao-contorno" data-contact-model="Temerario">
+                                    CONTATO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                        <path d="M3 5 L12 13 L21 5" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <img class="painel-carro" src="imgs/temerario.png" alt="Temerario">
+                    </div>
+                    <p class="aviso">O veículo ainda não está à venda e, portanto, não está sujeito à Diretiva
+                        1999/94/CE. Os dados de consumo e emissões estão em fase de homologação.</p>
+                </div>
+
+                <!-- Carro 4: Revuelto -->
+                <div class="painel painel4">
+                    <div class="painel-conteudo">
+                        <div class="painel-texto">
+                            <h2 class="subtitulo">CONFIGURE SEU</h2>
+                            <h1 class="titulo">REVUELTO</h1>
+                            <div class="botoes">
+                                <a href="https://configurator.lamborghini.com/configurator/configuration/ePl9IIpV1dNdcoMgEAfwq-QCmUqaJvrIhwgGDILGDnfp3Qu70HYmmT50-pLMPvxm1yjg37sNW3bbH8i5OdVX-b39nCmyj_a1uZCXps4fnIgkx92ZNPlg5dtpl39dPt3BkaOD_A2OT6lAYkwFGlwqkGpTobpUWVvTpwIRskG6h-3QbJDPYbuRVFlRL6mSRuqlVQgfEJHGiBAVfYUqF8dL7dgROow7HLFIEZxOBdcKz_Bf3Dt8lqCmYsVrxPVa4RGS8QL-BR0KfMWqJ8BCcT1y0_MKqNuRkVUoxKDKUpUwFR5Hhm3YMXzCjlViohmeBxwFtmAn9OXOoddlpMQMxxuMLKPrWrDwindc_MZxp5YyT5zMYsKNKr8pyx3TK6jX5mxfUevcapDVk8_fqDXczfMBpGk7HEGhbz3cz_Gl60xWlLZZ-l8-x7_m8n_S-EzZe77IPUjaz3zdp-o-Nx-fRIs-rQ/exterior?lang=eng&amp;country=it&amp;env=envstudionewday" class="botao botao-amarelo">
+                                    INICIAR CONFIGURAÇÃO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2 L21 7 V17 L12 22 L3 17 Z" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </a>
+                                <button type="button" class="botao botao-contorno" data-contact-model="Revuelto">
+                                    CONTATO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                        <path d="M3 5 L12 13 L21 5" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <img class="painel-carro" src="imgs/model_chooser_revuelto.webp" alt="Revuelto">
+                    </div>
+                    <p class="aviso">Consumo combinado: 11,8 l/100km; Emissões de CO2 combinadas: 276 g/km; Classe de
+                        eficiência CO2: G.</p>
+                </div>
+
+                <!-- Carro 5: Urus SE -->
+                <div class="painel painel5">
+                    <div class="painel-conteudo">
+                        <div class="painel-texto">
+                            <h2 class="subtitulo">CONFIGURE SEU</h2>
+                            <h1 class="titulo">URUS SE</h1>
+                            <div class="botoes">
+                                <a href="https://configurator.lamborghini.com/configurator/model/32005-20111/MBV-24717-2027" class="botao botao-amarelo">
+                                    INICIAR CONFIGURAÇÃO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2 L21 7 V17 L12 22 L3 17 Z" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </a>
+                                <button type="button" class="botao botao-contorno" data-contact-model="Urus SE">
+                                    CONTATO
+                                    <svg class="icone-botao" viewBox="0 0 24 24" width="16" height="16">
+                                        <rect x="3" y="5" width="18" height="14" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                        <path d="M3 5 L12 13 L21 5" fill="none" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <img class="painel-carro" src="imgs/urus-se.png" alt="Urus SE">
+                    </div>
+                    <p class="aviso">Consumo de energia combinado: 5,1 kWh/100 Km mais 2,08 l/100km; Emissões de CO2
+                        combinadas: 51 g/km.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <dialog class="contato-modal" id="contatoModal" aria-labelledby="contatoTitulo">
+        <div class="contato-header">
+            <div>
+                <p>FALE COM A NOSSA EQUIPE</p>
+                <h2 id="contatoTitulo">Entre em contato</h2>
+            </div>
+            <button type="button" class="contato-fechar" aria-label="Fechar formulário">&times;</button>
+        </div>
+        <form class="contato-form" id="contatoForm">
+            <label for="contatoModelo">Modelo de interesse</label>
+            <input id="contatoModelo" name="modelo" readonly>
+
+            <label for="contatoNome">Nome</label>
+            <input id="contatoNome" name="nome" autocomplete="name" required>
+
+            <label for="contatoEmail">E-mail</label>
+            <input id="contatoEmail" name="email" type="email" autocomplete="email" required>
+
+            <label for="contatoTelefone">Telefone <span>(opcional)</span></label>
+            <input id="contatoTelefone" name="telefone" type="tel" autocomplete="tel">
+
+            <label for="contatoMensagem">Mensagem</label>
+            <textarea id="contatoMensagem" name="mensagem" rows="4" required></textarea>
+
+            <p class="contato-aviso">Ao enviar, seu aplicativo de e-mail será aberto com a mensagem pronta para envio.</p>
+            <button type="submit" class="contato-enviar">CONTINUAR PARA O E-MAIL <span aria-hidden="true">&rarr;</span></button>
+        </form>
+    </dialog>
+
+    <!-- =========================================================
+         07. JANELA DE CHAT FLUTUANTE (ASK ME)
+         ========================================================= -->
+    <div class="chat-overlay" id="chat">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>ASK ME</h2>
+                <a href="#" class="chat-close" aria-label="Fechar Chat">✕</a>
+            </div>
+
+            <div class="chat-body">
+                <div class="chat-msg bot-welcome">
+                    <p>Welcome to the Lamborghini world! I'm your Virtual Assistant, ready to guide you on a journey of
+                        excellence and innovation. How can I assist you today? Feel Free to ask a question or select
+                        from topics below.</p>
+                    <a href="#" class="info-notice">▸ INFORMATION NOTICE</a>
+                </div>
+
+                <div class="chat-msg bot-sub">
+                    <p>You can ask me a question or choose from the proposed topics.</p>
+                </div>
+
+                <!-- Botões de tópicos no chat -->
+                <div class="chat-topics">
+                    <button type="button" class="topic-btn">Models</button>
+                    <button type="button" class="topic-btn">Exclusive experiences</button>
+                    <button type="button" class="topic-btn">Customization and services</button>
+                    <button type="button" class="topic-btn">Discover Lamborghini</button>
+                    <button type="button" class="topic-btn">Store</button>
+                    <button type="button" class="topic-btn">Contacts and support</button>
+                </div>
+            </div>
+
+            <div class="chat-footer">
+                <input type="text" placeholder="Ask your question here">
+                <button type="button" class="chat-send" aria-label="Enviar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ / FOOTER -->
+    <footer class="rodape">
+        <div class="rodape-container">
+
+            <!-- Seção Superior: Links e Redes Sociais -->
+            <div class="rodape-links">
+                <div class="colunas-links">
+                    <div class="coluna">
+                        <a href="company.html">COMPANY</a>
+                        <a href="#">COOKIE SETTINGS</a>
+                        <a href="financials.html">FINANCIALS</a>
+                    </div>
+                    <div class="coluna">
+                        <a href="#">MEDIA CENTER</a>
+                        <a href="#">SITEMAP</a>
+                        <a href="careers.html">CAREERS</a>
+                    </div>
+                    <div class="coluna">
+                        <a href="#">RECALL CAMPAIGN</a>
+                        <a href="#">PRIVACY & LEGAL</a>
+                        <a href="#">NEWSLETTER</a>
+                    </div>
+                    <div class="coluna">
+                        <a href="#">CONTACT US</a>
+                        <a href="#">ACCESSIBILITY</a>
+                    </div>
+                </div>
+
+                <div class="redes-sociais">
+                    <p data-i18n="followUs">Follow us on:</p>
+                    <div class="icones-redes">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Weibo"><i class="fab fa-weibo"></i></a>
+                        <a href="#" aria-label="Youku"><i class="fab fa-youku"></i></a>
+                        <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="linha-divisoria">
+
+            <!-- Seção Intermediária: Avisos Legais e Emissões -->
+            <div class="rodape-avisos">
+                <p>Learn about your rights and guarantee: read the <a href="#">Legal Guarantee Notice</a> and the EU
+                    GARAN label. <span class="selo-garantia">3 GARAN</span></p>
+                <p>The consumption and emissions values in the website refer to your geographical IP. This value might
+                    be unrealistic if you navigate using VPN or if the position of your Internet provider is imprecise.
+                    If you believe you are incorrectly geolocalized, contact your dealer to get valid consumption and
+                    emissions information in your area.</p>
+            </div>
+
+            <hr class="linha-divisoria">
+
+            <!-- Seção Inferior: Copyright e Termos -->
+            <div class="rodape-copyright">
+                <p>This site is protected by reCAPTCHA and the <a href="#">Privacy Policy</a> and <a href="#">Terms of
+                        Service</a> of Google apply.</p>
+                <br>
+                <p>Copyright © 2026 Automobili Lamborghini S.p.A. a company with sole shareholder subject to the
+                    management and coordination of AUDI AG.</p>
+                <p>All rights reserved. VAT no. IT 00591801204</p>
+                <br>
+                <p class="alerta-fraude"><strong>WARNING ABOUT ILLEGAL OFFERS OF ALLEGED SHARES OF AUTOMOBILI
+                        LAMBORGHINI S.P.A.</strong><br>
+                    Automobili Lamborghini S.p.A. got the notice that several third parties across different countries
+                    are allegedly offering shares in Automobili Lamborghini S.p.A. These offers are unlawful and
+                    originate neither from Volkswagen Aktiengesellschaft nor from any of its subsidiaries.</p>
+            </div>
+
+            <!-- Logótipo do Escudo no Fundo -->
+            <div class="rodape-logo">
+                <img src="imgs/logo_header_01.png.svg" alt="Lamborghini Logo">
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Script principal de JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

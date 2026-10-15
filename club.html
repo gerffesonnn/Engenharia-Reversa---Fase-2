@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lamborghini Club membership experience, privileges and events.">
+    <title>Lamborghini Club</title>
+    <link rel="stylesheet" href="club.css">
+</head>
+
+<body>
+    <header class="club-header">
+        <a class="club-menu-trigger" href="#club-menu" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+            <span>MENU</span>
+        </a>
+
+        <a class="club-logo" href="index.html" aria-label="Lamborghini home">
+            <img src="imgs/logo_header_01.png.svg" alt="Lamborghini">
+        </a>
+
+        <div class="club-actions">
+            <a href="index.html#chat" aria-label="Chat">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.7 7.4L3 21l2.1-5.1A8.5 8.5 0 1 1 21 11.5Z" /></svg>
+            </a>
+            <a href="search.html" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 5 5" /></svg>
+            </a>
+        </div>
+    </header>
+
+    <nav class="club-menu" id="club-menu" aria-label="Main menu">
+        <div class="club-menu-top">
+            <a href="#">CLOSE <span aria-hidden="true">×</span></a>
+            <button type="button" class="beyond-lang" data-i18n="language" aria-label="Open language selector">LANGUAGE</button>
+        </div>
+
+        <div class="language-panel" aria-label="Language selector">
+            <button type="button" class="lang-option active" data-lang="en">EN</button>
+            <button type="button" class="lang-option" data-lang="it">IT</button>
+            <button type="button" class="lang-option" data-lang="de">DE</button>
+            <button type="button" class="lang-option" data-lang="fr">FR</button>
+            <button type="button" class="lang-option" data-lang="pt">PT</button>
+        </div>
+
+        <div class="club-menu-columns">
+            <div>
+                <a class="club-menu-main" href="index.html" data-i18n="models">MODELS</a>
+                <a class="club-menu-main" href="beyond.html" data-i18n="beyond">BEYOND</a>
+                <a class="club-menu-main" href="museum.html" data-i18n="museum">MUSEUM</a>
+                <hr>
+                <a class="club-menu-sub" href="design.html" data-i18n="design">Design</a>
+                <a class="club-menu-sub" href="#services" data-i18n="financial">Financial services</a>
+                <a class="club-menu-sub" href="#lounge" data-i18n="lounge">Lounge</a>
+            </div>
+
+            <div>
+                <a class="club-menu-main" href="#ownership" data-i18n="ownership">OWNERSHIP</a>
+                <a class="club-menu-main" href="company.html" data-i18n="company">COMPANY</a>
+                <a class="club-menu-main" href="#store" data-i18n="store">STORE</a>
+                <hr>
+                <a class="club-menu-sub" href="#sustainability" data-i18n="sustainability">Sustainability</a>
+                <a class="club-menu-sub" href="warranty-extension.html" data-i18n="warranty">Warranty extension</a>
+                <a class="club-menu-sub" href="club.html" aria-current="page" data-i18n="club">Club</a>
+            </div>
+
+            <div>
+                <a class="club-menu-main" href="dealer-locator.html" data-i18n="dealerships">DEALERSHIPS</a>
+                <a class="club-menu-main" href="#motorsport" data-i18n="motorsport">MOTORSPORT</a>
+                <hr>
+                <a class="club-menu-sub" href="history.html" data-i18n="history">History</a>
+                <a class="club-menu-sub" href="#driving" data-i18n="driving">Driving Programs</a>
+                <a class="club-menu-sub" href="#podcast" data-i18n="podcast">Podcast</a>
+            </div>
+        </div>
+    </nav>
+
+    <a class="skip-link" href="#benefits">Skip to main content</a>
+    <main class="club-page">
+        <section class="club-hero" aria-label="Lamborghini Club introduction">
+            <div class="club-hero-overlay"></div>
+            <div class="club-hero-content">
+                <p class="club-breadcrumb"><span>HOME</span> <span class="divider">|</span> <strong>LAMBORGHINI CLUB</strong></p>
+                <h1>
+                    <span class="welcome">WELCOME TO</span>
+                    <span class="title">LAMBORGHINI<br>CLUB</span>
+                </h1>
+                <p class="club-subtitle">Experience the icon in a world of exclusivity, personalized services and unforgettable moments.</p>
+
+                <div class="club-actions-row">
+                    <a href="#join" class="primary-btn">JOIN THE CLUB</a>
+                    <a href="#benefits" class="secondary-btn">EXPLORE BENEFITS</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="club-benefits" id="benefits">
+            <div class="section-header">
+                <p class="eyebrow">MEMBERSHIP</p>
+                <h2>EXCLUSIVE PRIVILEGES</h2>
+            </div>
+
+            <div class="benefits-grid">
+                <article class="benefit-card">
+                    <span class="card-icon">01</span>
+                    <h3>Priority access</h3>
+                    <p>Invitations to launch events, track days and private experiences with the brand.</p>
+                </article>
+
+                <article class="benefit-card">
+                    <span class="card-icon">02</span>
+                    <h3>Concierge service</h3>
+                    <p>Dedicated support for ownership, travel planning and personalized vehicle care.</p>
+                </article>
+
+                <article class="benefit-card">
+                    <span class="card-icon">03</span>
+                    <h3>Collector community</h3>
+                    <p>Connections with enthusiasts and exclusive content from the Lamborghini world.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="club-showcase">
+            <img class="showcase-photo" src="imgs/club/club-road.jpg" alt="Lamborghini clássico liderando uma fila de carros em uma estrada">
+
+            <div class="showcase-content">
+                <div class="showcase-copy">
+                    <p class="eyebrow">THE CLUB EXPERIENCE</p>
+                    <h2>DRIVING THE VISION BEYOND THE ROAD.</h2>
+                    <p>From the first contact to the final race weekend, the Lamborghini Club connects passion, design and performance in a unique ecosystem built for those who live at the edge of the extraordinary.</p>
+                    <ul>
+                        <li>Private events and track participation</li>
+                        <li>Curated access to lifestyle and travel experiences</li>
+                        <li>Tailored services for collectors and owners</li>
+                    </ul>
+                </div>
+
+                <div class="showcase-cards">
+                    <article class="mini-card dark">
+                        <p class="mini-label">EVENTS</p>
+                        <h3>Private drives</h3>
+                    </article>
+                    <article class="mini-card light">
+                        <p class="mini-label">SERVICE</p>
+                        <h3>Concierge care</h3>
+                    </article>
+                    <article class="mini-card accent">
+                        <p class="mini-label">COMMUNITY</p>
+                        <h3>Member network</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="club-cta" id="join">
+            <div class="cta-panel">
+                <p class="eyebrow">BECOME A MEMBER</p>
+                <h2>Start your journey with Lamborghini Club.</h2>
+                <a href="mailto:club@lamborghini.com" class="primary-btn">REQUEST MEMBERSHIP</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

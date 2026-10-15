@@ -1,0 +1,500 @@
+/* RESET E ESTILOS GERAIS */
+/* Zera margens/paddings padrão, faz o box-sizing considerar padding/border
+   dentro da largura/altura definidas, e define a fonte padrão do site */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Fundo preto e texto branco (tema dark). overflow-x: hidden evita barra de
+   rolagem horizontal indesejada (útil quando algum elemento "vaza" da tela) */
+body {
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ===================== CABEÇALHO SUPERIOR ===================== */
+.header-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #111;
+  border-bottom: 1px solid #222;
+}
+
+/* Botão de menu e link de busca no header, com leve transparência no hover */
+.menu-btn,
+.header-busca {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.menu-btn:hover,
+.header-busca:hover {
+  opacity: 0.8;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo com altura fixa; object-fit: contain mantém a proporção sem distorcer */
+.logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header-busca i {
+  font-size: 18px;
+}
+
+/* ===================== ESTILOS DO MENU OVERLAY ===================== */
+/* Overlay em tela cheia, escondido por padrão (opacity: 0 + pointer-events: none) */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 60px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Ao clicar no link com href="#menuOverlay", a pseudoclasse :target ativa o menu */
+.menu-overlay:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+
+.close-btn {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Grade com 3 colunas iguais para organizar os links do menu */
+.menu-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  max-width: 1200px;
+}
+
+.menu-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Links principais do menu (Models, Ownership, etc.), grandes e em destaque */
+.menu-column .main-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.menu-column .main-link:hover {
+  color: #aaa;
+}
+
+/* Linha divisória entre os links principais e os subitens de cada coluna */
+.menu-column hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 15px 0;
+}
+
+/* Subitens do menu, menores e em cinza, ficam brancos ao passar o mouse */
+.menu-column .sub-link {
+  color: #888;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.menu-column .sub-link:hover {
+  color: #fff;
+}
+
+/* ===================== CONTAINER PRINCIPAL DO LOCATOR ===================== */
+/* Layout em duas colunas lado a lado: painel de busca + mapa */
+/* min-height calcula o espaço restante da tela descontando a altura do header (67px) */
+.dealer-locator-container {
+  display: flex;
+  min-height: calc(100vh - 67px);
+  position: relative;
+}
+
+/* ===================== PAINEL LATERAL ESQUERDO ===================== */
+.painel-busca {
+  width: 320px;
+  background-color: #fff;
+  color: #000;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5); /* sombra para destacar o painel sobre o mapa */
+}
+
+/* Abas Showroom / Service / Collision center */
+.abas-navegacao {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+/* Aba inativa: texto cinza. "cursor: default" indica que, neste protótipo,
+   o clique na aba ainda não tem uma ação real associada */
+.aba {
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  padding-bottom: 5px;
+  cursor: default;
+}
+
+/* Aba ativa: texto preto com linha inferior preta */
+.aba.ativa {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.campo-pesquisa {
+  margin: 20px 15px;
+  position: relative; /* serve de referência para posicionar o ícone da lupa */
+}
+
+.campo-pesquisa input {
+  width: 100%;
+  padding: 12px 35px 12px 10px; /* padding direito maior para não sobrepor o ícone da lupa */
+  border: 1px solid #000;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Ícone de lupa posicionado dentro do campo de busca, alinhado verticalmente ao centro */
+.campo-pesquisa .icone-busca {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #000;
+}
+
+.near-you {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* Botão de geolocalização; "cursor: default" indica que ainda não é clicável de fato */
+.btn-target {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: default;
+}
+
+.lista-paises {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cada país da lista, com linha divisória acima */
+.pais-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pais-item h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Botão quadrado "+" ao lado de cada país; também "cursor: default" (sem ação real ainda) */
+.btn-mais {
+  background: none;
+  border: 1px solid #000;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+/* ===================== ÁREA DO MAPA ===================== */
+/* flex: 1 faz o mapa ocupar todo o espaço restante ao lado do painel esquerdo */
+/* O fundo usa um gradiente radial repetido para simular uma grade de pontos, como um mapa estilizado */
+.mapa-container {
+  flex: 1;
+  background-color: #1a1a1a;
+  background-image: radial-gradient(#2c2c2c 1px, transparent 1px);
+  background-size: 20px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botão de fechar o mapa, no canto superior direito */
+.btn-fechar-mapa {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: 1px solid #444;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: default;
+}
+
+/* Alternador de tipo de visualização (Map / Satellite), no canto superior esquerdo */
+.mapa-controles-tipo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  background: #000;
+  border: 1px solid #333;
+}
+
+.mapa-controles-tipo button {
+  background: transparent;
+  color: #888;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: default;
+}
+
+/* Opção atualmente selecionada (Map ou Satellite) fica destacada */
+.mapa-controles-tipo button.ativo {
+  color: #fff;
+  background: #222;
+}
+
+/* Mensagem central sobre cookies de rastreamento necessários para o mapa funcionar */
+.overlay-cookies {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.overlay-cookies p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+
+.btn-cookies-settings {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  cursor: default;
+}
+
+/* ===================== RODAPÉ ===================== */
+.rodape-oficial {
+  background-color: #000;
+  padding: 50px 80px 30px;
+  color: #fff;
+  border-top: 1px solid #222;
+}
+
+/* Parte superior do rodapé: colunas de links à esquerda, redes sociais à direita.
+   flex-wrap permite que quebrem linha em telas menores */
+.rodape-topo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.rodape-colunas-links {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.coluna a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.rodape-redes {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.redes-titulo {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Ícones das redes sociais, com largura máxima para forçar a quebra em mais de uma linha se necessário */
+.icones-redes {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  max-width: 250px;
+}
+
+.icones-redes a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* Linha divisória entre os blocos do rodapé */
+.divisor-rodape {
+  border: none;
+  border-top: 1px solid #222;
+  margin: 30px 0;
+}
+
+.rodape-avisos {
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Aviso de garantia, com o selo "3y GARAN EU" alinhado ao lado do texto */
+.aviso-garantia {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.aviso-garantia a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Selo de garantia com borda, estilo "badge" */
+.selo-garanti {
+  border: 1px solid #fff;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+/* Texto sobre consumo/emissões, mais discreto (cinza e fonte menor) */
+.aviso-emissoes {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Bloco final de copyright, empilhado verticalmente */
+.rodape-copyright {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rodape-copyright a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.aviso-ilegal {
+  margin-top: 10px;
+}
+
+/* Título em destaque do aviso sobre ofertas ilegais de ações da empresa */
+.aviso-ilegal strong {
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 11px;
+}
+
+.aviso-ilegal p {
+  font-size: 11px;
+  color: #888;
+}
+
+/* Logo final do rodapé, centralizada */
+.logo-rodape-fim {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.logo-img-rodape {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}

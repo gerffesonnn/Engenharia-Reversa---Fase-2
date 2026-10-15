@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | Lamborghini</title>
+    <link rel="stylesheet" href="search.css"> <!-- Arquivo de estilos CSS da página de busca -->
+</head>
+
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <!-- Header fixo estilo Lamborghini -->
+    <header>
+        <!-- Botão MENU: leva para uma âncora "#menuOverlay" (overlay de menu, não incluído neste arquivo) -->
+        <!-- Contém um ícone SVG de "hambúrguer" (3 linhas) montado manualmente com <path> -->
+        <a href="#menuOverlay" class="menu-btn"
+            style="display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="vertical-align: middle;">
+                <path d="M4 5h16" />
+                <path d="M4 12h16" />
+                <path d="M4 19h16" />
+            </svg>
+            <span>MENU</span>
+        </a>
+
+        <!-- Logo centralizada, também funciona como link para a página inicial -->
+        <a href="index.html" class="logo">
+            <img src="imgs/logo_header_01.png.svg" alt="Lamborghini">
+        </a>
+
+        <!-- Ícones de ação à direita: abrir chat e ir para busca -->
+        <div class="acoes">
+            <!-- Ícone de chat: aponta para a âncora "#chat", que abre o overlay do chat definido no final da página -->
+            <a href="#chat" class="chat" aria-label="Chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z">
+                    </path>
+                    <path
+                        d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1">
+                    </path>
+                </svg>
+            </a>
+            <!-- Ícone de lupa: link para a própria página de busca -->
+            <a href="search.html" class="lupa" aria-label="Buscar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main class="search-container">
+
+        <!-- ===================== CAIXA DE BUSCA ===================== -->
+        <!-- Campo de busca estilo caixa -->
+        <section class="search-box-section">
+            <!-- Formulário de busca. O action="#" é um placeholder, ainda não envia para nenhuma rota real -->
+            <form action="#" class="search-form">
+                <input type="text" placeholder="Search on the website" class="search-input" autofocus>
+                <button type="submit" class="search-btn">SEARCH</button>
+            </form>
+        </section>
+
+        <!-- ===================== TÓPICOS PRINCIPAIS ===================== -->
+        <!-- Seção com os principais tópicos do site, organizados em 3 colunas -->
+        <section class="main-topics">
+            <h2>MAIN TOPICS</h2>
+
+            <div class="topics-grid">
+                <!-- Coluna 1: links relacionados aos modelos de carro -->
+                <div class="topic-col">
+                    <h3><span class="icon">🚗</span> MODELS</h3>
+                    <ul>
+                        <li><a href="#">TEMERARIO</a></li>
+                        <li><a href="#">REVUELTO</a></li>
+                        <li><a href="#">URUS SE</a></li>
+                        <li><a href="#">URUS S</a></li>
+                        <li><a href="#">URUS PERFORMANTE</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 2: links relacionados a serviços para donos de veículos -->
+                <div class="topic-col">
+                    <h3><span class="icon">👤</span> OWNERSHIP</h3>
+                    <ul>
+                        <li><a href="#">CONNECTIVITY</a></li>
+                        <li><a href="#">CUSTOMER APP</a></li>
+                        <li><a href="#">MOBILITY PROGRAM</a></li>
+                        <li><a href="#">SERVICE</a></li>
+                        <li><a href="#">RECALL CAMPAIGN</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: links relacionados a personalização e soluções financeiras -->
+                <div class="topic-col">
+                    <h3><span class="icon">🎨</span> CUSTOM SOLUTIONS</h3>
+                    <ul>
+                        <li><a href="#">CUSTOMIZATION</a></li>
+                        <li><a href="#">ACCESSORIES</a></li>
+                        <li><a href="#">FINANCIAL SERVICES</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer>
+        <!-- Links organizados em colunas por categoria -->
+        <div class="footer-links">
+            <div>
+                <a href="#">COMPANY</a>
+                <a href="#">SUSTAINABILITY</a>
+                <a href="#">COOKIE SETTINGS</a>
+            </div>
+            <div>
+                <a href="#">FINANCIALS</a>
+                <a href="#">MEDIA CENTER</a>
+                <a href="#">SITEMAP</a>
+            </div>
+            <div>
+                <a href="#">CAREERS</a>
+                <a href="#">RECALL CAMPAIGN</a>
+                <a href="#">PRIVACY & LEGAL</a>
+            </div>
+            <div>
+                <a href="#">NEWSLETTER</a>
+                <a href="#">CONTACT US</a>
+                <a href="#">ACCESSIBILITY</a>
+            </div>
+            <!-- Bloco de redes sociais (ícones representados por emojis como placeholder) -->
+            <div class="socials">
+                <p>Follow us on:</p>
+                <div class="social-icons">
+                    <span>📷</span> <span>🌐</span> <span>📘</span> <span>▶</span> <span>✕</span> <span>🎵</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <!-- Texto legal sobre consumo/emissões, obrigatório em sites de montadoras -->
+        <p class="disclaimer">
+            The consumption and emissions values in the website refer to your geographical IP...
+        </p>
+
+        <hr class="footer-divider">
+
+        <!-- Texto de copyright da empresa -->
+        <p class="copyright">
+            Copyright © 2026 Automobili Lamborghini S.p.A. a company with sole shareholder subject to the management and
+            coordination of AUDI AG. All rights reserved.
+        </p>
+
+        <!-- Logo repetida no rodapé -->
+        <div class="footer-logo">
+            <img src="imgs/logo_header_01.png.svg" alt="Lamborghini">
+        </div>
+    </footer>
+
+    <!-- ===================== OVERLAY DO CHAT (ASK ME) ===================== -->
+    <!-- Este div fica escondido por padrão via CSS e é exibido quando a URL aponta para "#chat" -->
+    <!-- (ativado pelo ícone de chat no header, que tem href="#chat") -->
+<div class="chat-overlay" id="chat">
+    <div class="chat-container">
+        <!-- Cabeçalho do Chat: título e botão de fechar -->
+        <div class="chat-header">
+            <h2>ASK ME</h2>
+            <a href="#" class="chat-close" aria-label="Fechar Chat">✕</a>
+        </div>
+
+        <!-- Corpo de mensagens com rolagem -->
+        <div class="chat-body">
+            <!-- Mensagem de boas-vindas do assistente virtual -->
+            <div class="chat-msg bot-welcome">
+                <p>Welcome to the Lamborghini world! I'm your Virtual Assistant, ready to guide you on a journey of excellence and innovation. How can I assist you today? Feel Free to ask a question or select from topics below.</p>
+                <a href="#" class="info-notice">▸ INFORMATION NOTICE</a>
+            </div>
+
+            <!-- Submensagem explicando como usar o chat -->
+            <div class="chat-msg bot-sub">
+                <p>You can ask me a question or choose from the proposed topics.</p>
+            </div>
+
+            <!-- Botões de sugestão/tópicos rápidos para o usuário clicar -->
+            <!-- Cada botão usa o mesmo ícone SVG de "chat" e um texto de tópico diferente -->
+            <div class="chat-topics">
+                <button type="button" class="topic-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
+                    Models
+                </button>
+                <button type="button" class="topic-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
+                    Exclusive experiences
+                </button>
+                <button type="button" class="topic-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
+                    Customization and services
+                </button>
+                <button type="button" class="topic-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
+                    Discover Lamborghini
+                </button>
+                <button type="button" class="topic-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
+                    Store
+                </button>
+                <button type="button" class="topic-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
+                    Contacts and support
+                </button>
+            </div>
+        </div>
+
+        <!-- Campo de Input inferior: onde o usuário digita a pergunta e envia -->
+        <div class="chat-footer">
+            <input type="text" placeholder="Ask your question here">
+            <button type="button" class="chat-send" aria-label="Enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+  <script src="script.js"></script>
+</body>
+
+</html>

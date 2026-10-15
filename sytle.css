@@ -1,0 +1,480 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.menu-btn {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: opacity 0.3s;
+}
+
+.menu-btn:hover {
+  opacity: 0.7;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.acoes {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.lupa img, .chat img {
+  width: 22px;
+  height: 22px;
+  filter: invert(1);
+  transition: transform 0.2s ease;
+}
+
+.lupa:hover img, .chat:hover img {
+  transform: scale(1.1);
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 10000;
+  padding: 40px 80px;
+  display: none;
+  overflow-y: auto;
+}
+
+.menu-overlay:target {
+  display: block;
+}
+
+.menu-header {
+  margin-bottom: 50px;
+}
+
+.close-btn {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.menu-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.menu-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 18px 0;
+  border-bottom: 1px solid #222222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.main-link:hover {
+  color: #cccccc;
+}
+
+.menu-column hr {
+  border: 0;
+  border-top: 1px solid #1a1a1a;
+  margin: 25px 0;
+}
+
+.sub-link {
+  color: #888888;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #111111;
+  transition: color 0.3s;
+}
+
+.sub-link:hover {
+  color: #ffffff;
+}
+
+/* ==========================================
+   CARROSSEL E ANIMAÇÕES
+   ========================================== */
+.carrosel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#pause-control {
+  display: none;
+}
+
+@keyframes trocarSlide {
+  0%, 28% { opacity: 1; }
+  33%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 80px;
+  animation: trocarSlide 15s infinite;
+}
+
+.slide:nth-child(2) { animation-delay: 0s; }
+.slide:nth-child(3) { animation-delay: 5s; }
+.slide:nth-child(4) { animation-delay: 10s; }
+
+.media-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slide-content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.slide-content p {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #dddddd;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.slide-content h1 {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.btn-discover {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 15px 30px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-discover:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ==========================================
+   INDICADORES E BOTÃO DE PAUSA (HEXAGONAL)
+   ========================================== */
+.carrosel-indicadores {
+  position: absolute;
+  bottom: 40px;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 100;
+}
+
+.indicador {
+  width: 60px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.progresso {
+  height: 100%;
+  width: 0%;
+  background-color: #ffffff;
+  animation: carregarBarra 15s infinite;
+}
+
+@keyframes carregarBarra {
+  0% { width: 0%; }
+  30% { width: 100%; }
+  33.33% { width: 0%; }
+  100% { width: 0%; }
+}
+
+.indicador:nth-child(1) .progresso { animation-delay: 0s; }
+.indicador:nth-child(2) .progresso { animation-delay: 5s; }
+.indicador:nth-child(3) .progresso { animation-delay: 10s; }
+
+/* Botão Hexagonal estilo Lamborghini */
+.botao-pause {
+  width: 36px;
+  height: 40px;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: background-color 0.3s;
+}
+
+.botao-pause::after {
+  content: "||";
+  font-weight: bold;
+}
+
+.botao-pause:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* PAUSA PURA VIA CSS (:checked) */
+#pause-control:checked ~ .slide,
+#pause-control:checked ~ .carrosel-indicadores .progresso {
+  animation-play-state: paused;
+}
+
+/* Altera o ícone para PLAY quando pausado */
+#pause-control:checked ~ .carrosel-indicadores .botao-pause::after {
+  content: "▶";
+  font-size: 8px;
+}
+
+.acoes img {
+  width: 22px;
+  height: 22px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.acoes a:hover img {
+  transform: scale(1.1);
+}
+
+/* Estrutura da Overlay (escondida por padrão) */
+.chat-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Exibe a Overlay ao clicar no ícone do Chat (#chat) */
+.chat-overlay:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Painel do Chat (Container Lateral) */
+.chat-container {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.chat-header {
+  background-color: #383838;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.chat-close {
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid #555555;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.chat-close:hover {
+  background-color: #555555;
+}
+
+/* Corpo do Chat */
+.chat-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Mensagens de Balão */
+.chat-msg {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 20px 20px 20px 4px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.chat-msg p {
+  margin: 0 0 10px 0;
+}
+
+.chat-msg p:last-child {
+  margin-bottom: 0;
+}
+
+.info-notice {
+  color: #cccccc;
+  font-size: 12px;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+/* Tópicos em botões pill */
+.chat-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.topic-btn {
+  background-color: #2a2a2a;
+  border: 1px solid #444444;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.topic-btn:hover {
+  background-color: #444444;
+}
+
+/* Footer com Input */
+.chat-footer {
+  background-color: #181818;
+  padding: 16px 20px;
+  border-top: 1px solid #2a2a2a;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-footer input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 13.5px;
+  outline: none;
+}
+
+.chat-footer input::placeholder {
+  color: #888888;
+}
+
+.chat-send {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.chat-send:hover {
+  opacity: 1;
+}
+

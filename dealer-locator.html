@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamborghini - Dealer Locator</title>
+  
+  <!-- Fontes Google: preconnect acelera a conexão com os servidores do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome: biblioteca de ícones usada nos ícones sociais e de busca -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos próprios da página -->
+  <link rel="stylesheet" href="dealer-locator.css">
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO SUPERIOR ===================== -->
+  <header class="header-topo">
+    <!-- Botão MENU: ao clicar, leva para a âncora "#menuOverlay" (o menu overlay logo abaixo) -->
+    <!-- Ícone SVG de "hambúrguer" desenhado com 3 linhas (path) -->
+    <a href="#menuOverlay" class="menu-btn" style="display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="vertical-align: middle;">
+          <path d="M4 5h16" />
+          <path d="M4 12h16" />
+          <path d="M4 19h16" />
+      </svg>
+      <span>MENU</span>
+    </a>
+
+    <!-- Logo oficial da Lamborghini, também é um link para a página inicial -->
+    <a href="index.html" class="header-logo" aria-label="Página Inicial">
+      <img src="imgs/logo_header_01.png.svg" alt="Lamborghini Logo" class="logo-img">
+    </a>
+
+    <!-- Ícone de lupa: link direto para a página de busca (search.html) -->
+    <a href="search.html" class="lupa" aria-label="Buscar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+            </a>
+  </header>
+
+  <!-- ===================== MENU OVERLAY ===================== -->
+  <!-- Fica escondido por padrão via CSS e aparece quando a URL aponta para "#menuOverlay" -->
+  <div class="menu-overlay" id="menuOverlay">
+    <!-- Cabeçalho do overlay com botão de fechar -->
+    <div class="menu-header">
+      <a href="#" class="close-btn" id="closeBtn">✕ MENU</a>
+    </div>
+    <div class="menu-content">
+      <!-- Coluna 1 do Menu: Models, Beyond, Museum + subitens -->
+      <div class="menu-column">
+        <a href="#" class="main-link">MODELS <span></span></a>
+        <a href="#" class="main-link">BEYOND <span></span></a>
+        <a href="#" class="main-link">MUSEUM <span></span></a>
+        <hr>
+        <a href="design.html" class="sub-link">Design</a>
+        <a href="#" class="sub-link">Financial services</a>
+        <a href="#" class="sub-link">Lounge</a>
+      </div>
+      <!-- Coluna 2 do Menu: Ownership, Company, Store + subitens -->
+      <div class="menu-column">
+        <a href="#" class="main-link">OWNERSHIP <span></span></a>
+        <a href="#" class="main-link">COMPANY <span></span></a>
+        <a href="#" class="main-link">STORE <span></span></a>
+        <hr>
+        <a href="#" class="sub-link">Sustainability</a>
+        <a href="warranty-extension.html" class="sub-link">Warranty extension</a>
+        <a href="#" class="sub-link">Club</a>
+      </div>
+      <!-- Coluna 3 do Menu: Dealerships e Motorsport + subitens -->
+      <div class="menu-column">
+        <a href="#" class="main-link">DEALERSHIPS <span></span></a>
+        <a href="#" class="main-link">MOTORSPORT <span></span></a>
+        <hr>
+        <a href="history.html" class="sub-link">History</a>
+        <a href="#" class="sub-link">Driving Programs</a>
+        <a href="#" class="sub-link">Podcast</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SEÇÃO PRINCIPAL (DEALER LOCATOR E MAPA) ===================== -->
+  <main class="dealer-locator-container">
+    
+    <!-- ===================== PAINEL LATERAL ESQUERDO ===================== -->
+    <aside class="painel-busca">
+      <!-- Abas para alternar entre Showroom, Service e Collision center -->
+      <!-- (aqui as abas são só visuais/HTML; a troca de conteúdo dependeria de JS, não incluído neste arquivo) -->
+      <nav class="abas-navegacao">
+        <button class="aba ativa">Showroom</button>
+        <button class="aba">Service</button>
+        <button class="aba">Collision center</button>
+      </nav>
+
+      <!-- Campo de Pesquisa por país/região. "readonly" impede digitação direta,
+           sugerindo que a busca é feita por seleção (ex: abrindo uma lista) -->
+      <div class="campo-pesquisa">
+        <input type="text" placeholder="Search Country/Sales Region" readonly>
+        <i class="fa-solid fa-magnifying-glass icone-busca"></i>
+      </div>
+
+      <!-- Botão "NEAR YOU": usaria geolocalização do navegador para encontrar concessionárias próximas -->
+      <div class="near-you">
+        <span>NEAR YOU</span>
+        <button class="btn-target" aria-label="Geolocalização">
+          <i class="fa-crosshairs fa-solid"></i>
+        </button>
+      </div>
+
+      <!-- Lista de países disponíveis, cada um com um botão "+" (provavelmente expande para mostrar cidades/concessionárias) -->
+      <div class="lista-paises">
+        <div class="pais-item">
+          <h2>AUSTRALIA</h2>
+          <button class="btn-mais">+</button>
+        </div>
+        <div class="pais-item">
+          <h2>AUSTRIA</h2>
+          <button class="btn-mais">+</button>
+        </div>
+        <div class="pais-item">
+          <h2>AZERBAIJAN</h2>
+          <button class="btn-mais">+</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===================== ÁREA DO MAPA ===================== -->
+    <section class="mapa-container">
+      <!-- Botão para fechar/recolher o mapa -->
+      <button class="btn-fechar-mapa" aria-label="Fechar">&times;</button>
+      
+      <!-- Alternância entre visualização de Mapa e Satélite -->
+      <div class="mapa-controles-tipo">
+        <button class="ativo">Map</button>
+        <button>Satellite</button>
+      </div>
+
+      <!-- Mensagem central informando que o mapa só funciona corretamente após aceitar cookies de rastreamento -->
+      <div class="overlay-cookies">
+        <p>Due to technical specifications, maps are only displayed correctly after accepting Targeting Cookies.</p>
+        <button class="btn-cookies-settings">
+          COOKIES SETTINGS <span>+</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== RODAPÉ COMPLETO ===================== -->
+  <footer class="rodape-oficial">
+    
+    <!-- Parte superior do rodapé: colunas de links + redes sociais -->
+    <div class="rodape-topo">
+      <div class="rodape-colunas-links">
+        <div class="coluna">
+          <a href="#">COMPANY</a>
+          <a href="#">COOKIE SETTINGS</a>
+          <a href="#">FINANCIALS</a>
+        </div>
+        <div class="coluna">
+          <a href="#">MEDIA CENTER</a>
+          <a href="#">SITEMAP</a>
+          <a href="#">CAREERS</a>
+        </div>
+        <div class="coluna">
+          <a href="#">RECALL CAMPAIGN</a>
+          <a href="#">PRIVACY & LEGAL</a>
+          <a href="#">NEWSLETTER</a>
+        </div>
+        <div class="coluna">
+          <a href="#">CONTACT US</a>
+          <a href="#">ACCESSIBILITY</a>
+        </div>
+      </div>
+
+      <!-- Bloco de redes sociais com ícones reais do Font Awesome (mais completo que nas outras páginas) -->
+      <div class="rodape-redes">
+        <span class="redes-titulo">Follow us on:</span>
+        <div class="icones-redes">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-threads"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-weibo"></i></a>
+          <a href="#"><i class="fa-brands fa-youku"></i></a>
+          <a href="#"><i class="fa-brands fa-weixin"></i></a>
+          <a href="#"><i class="fa-brands fa-discord"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divisor-rodape">
+
+    <!-- Avisos legais: garantia e informações sobre consumo/emissões baseadas em geolocalização por IP -->
+    <div class="rodape-avisos">
+      <p class="aviso-garantia">
+        Learn about your rights and guarantee: read the <a href="#">Legal Guarantee Notice</a> and the EU GARAN label. 
+        <span class="selo-garanti">3<sub>y</sub> GARAN&#10003; EU</span>
+      </p>
+
+      <p class="aviso-emissoes">
+        The consumption and emissions values in the website refer to your geographical IP. This value might be unrealistic if you navigate using VPN or if the position of your Internet provider is imprecise. If you believe you are incorrectly geolocalized, contact your dealer to get valid consumption and emissions information in your area.
+      </p>
+    </div>
+
+    <hr class="divisor-rodape">
+
+    <!-- Copyright, aviso do reCAPTCHA/Google e alerta sobre ofertas ilegais de ações da empresa -->
+    <div class="rodape-copyright">
+      <p>This site is protected by reCAPTCHA and the <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> of Google apply.</p>
+      
+      <p>Copyright &copy; 2026 Automobili Lamborghini S.p.A. a company with sole shareholder subject to the management and coordination of AUDI AG.</p>
+      <p>All rights reserved. VAT no. IT 00591801204</p>
+      
+      <!-- Aviso legal sobre golpes de venda falsa de ações da Lamborghini -->
+      <div class="aviso-ilegal">
+        <strong>WARNING ABOUT ILLEGAL OFFERS OF ALLEGED SHARES OF AUTOMOBILI LAMBORGHINI S.P.A.</strong>
+        <p>Automobili Lamborghini S.p.A. got the notice that several third parties across different countries are allegedly offering shares in Automobili Lamborghini S.p.A. These offers are unlawful and originate neither from Volkswagen Aktiengesellschaft nor from any of its subsidiaries.</p>
+      </div>
+
+      <!-- Logo repetida no final do rodapé -->
+      <div class="logo-rodape-fim">
+        <img src="imgs/logo_header_01.png.svg" alt="Lamborghini Logo" class="logo-img-rodape">
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

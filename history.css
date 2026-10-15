@@ -1,0 +1,569 @@
+.history-page {
+  padding-top: 76px;
+  background: #080808;
+  color: #ffffff;
+}
+
+.history-page img {
+  display: block;
+  width: 100%;
+}
+
+.history-hero {
+  position: relative;
+  min-height: min(760px, calc(100vh - 76px));
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 8vw;
+  background: #111111;
+}
+
+.history-hero::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(0,0,0,.68), transparent 76%), linear-gradient(0deg, rgba(0,0,0,.58), transparent 65%);
+}
+
+.history-hero > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.history-hero-copy,
+.history-hero-index {
+  position: relative;
+  z-index: 1;
+}
+
+.history-hero-copy h1 {
+  margin: 0;
+  font-family: 'Arial Narrow', Impact, sans-serif;
+  font-size: 132px;
+  font-weight: 900;
+  line-height: .88;
+}
+
+.history-eyebrow {
+  margin: 0 0 18px;
+  color: #b9b9b9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.history-hero-copy .history-eyebrow {
+  color: #ffffff;
+}
+
+.history-hero-link,
+.history-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 0 0 9px;
+  border-bottom: 1px solid currentColor;
+  color: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+}
+
+.history-hero-link span {
+  font-size: 17px;
+}
+
+.history-hero-index {
+  margin-left: auto;
+  color: rgba(255,255,255,.8);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.history-nav {
+  position: sticky;
+  top: 76px;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 58px);
+  overflow-x: auto;
+  padding: 20px 7vw;
+  border-bottom: 1px solid rgba(255,255,255,.13);
+  background: rgba(8,8,8,.96);
+  scrollbar-width: none;
+}
+
+.history-nav a {
+  flex: 0 0 auto;
+  color: #c5c5c5;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.history-nav a:hover,
+.history-nav a:focus-visible {
+  color: #ffffff;
+}
+
+.history-intro {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 28px 8vw;
+  align-items: end;
+  padding: 110px 12vw 120px;
+  background: #ecece8;
+  color: #111111;
+}
+
+.history-intro .history-eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #676767;
+}
+
+.history-intro h2,
+.history-section-heading h2,
+.history-story-copy h2,
+.history-motorsport h2 {
+  margin: 0;
+  font-family: 'Arial Narrow', Impact, sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: .98;
+}
+
+.history-intro > p:last-child {
+  max-width: 620px;
+  margin: 0;
+  color: #343434;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.history-masterpieces,
+.history-timeline {
+  padding: 100px 8vw;
+}
+
+.history-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.history-section-heading h2 {
+  font-size: 58px;
+}
+
+.history-section-count,
+.timeline-intro {
+  margin: 0 0 6px;
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.masterpiece-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #393939;
+  border-left: 1px solid #393939;
+}
+
+.masterpiece-card,
+.masterpiece-feature {
+  position: relative;
+  min-height: 195px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 9px;
+  overflow: hidden;
+  padding: 28px;
+  border-right: 1px solid #393939;
+  border-bottom: 1px solid #393939;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 180ms ease;
+}
+
+.masterpiece-card:hover {
+  background: #171717;
+}
+
+.masterpiece-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(0deg, rgba(0,0,0,.8), rgba(0,0,0,.08) 78%);
+}
+
+.masterpiece-card > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.masterpiece-card:hover > img {
+  transform: scale(1.04);
+}
+
+.masterpiece-card > span:not(.masterpiece-arrow),
+.masterpiece-card > strong,
+.masterpiece-card > small {
+  position: relative;
+  z-index: 1;
+}
+
+.masterpiece-feature {
+  grid-row: span 2;
+  min-height: 408px;
+  justify-content: flex-end;
+}
+
+.masterpiece-feature::after {
+  position: absolute;
+  inset: 30% 0 0;
+  content: "";
+  background: linear-gradient(0deg, rgba(0,0,0,.85), transparent);
+}
+
+.masterpiece-feature img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.masterpiece-feature:hover img {
+  transform: scale(1.04);
+}
+
+.masterpiece-feature > span,
+.masterpiece-feature > strong {
+  position: relative;
+  z-index: 1;
+}
+
+.masterpiece-card > span:first-child,
+.masterpiece-feature .masterpiece-year {
+  color: #d5b34d;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+}
+
+.masterpiece-card strong,
+.masterpiece-feature strong {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.masterpiece-card small {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.masterpiece-arrow {
+  position: absolute;
+  z-index: 1;
+  top: 26px;
+  right: 27px;
+  color: #c9c9c9;
+  font-size: 19px;
+}
+
+.history-masterpieces > .history-text-link {
+  margin-top: 30px;
+}
+
+.history-timeline {
+  background: #eeeeea;
+  color: #111111;
+}
+
+.history-timeline .history-eyebrow,
+.history-timeline .timeline-intro {
+  color: #666666;
+}
+
+.decade-filters {
+  border-color: #bcbcb8;
+}
+
+.decade-filter {
+  color: #696969;
+}
+
+.decade-filter.active,
+.decade-filter:hover {
+  border-bottom-color: #111111;
+  color: #111111;
+}
+
+.history-milestone-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-milestone {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr) 40px;
+  gap: 25px;
+  align-items: center;
+  min-height: 112px;
+  border-bottom: 1px solid #c8c8c4;
+}
+
+.history-milestone[hidden] {
+  display: none;
+}
+
+.history-milestone > span {
+  color: #777777;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.history-milestone h3 {
+  margin: 0 0 7px;
+  font-size: 14px;
+  letter-spacing: .6px;
+}
+
+.history-milestone p {
+  margin: 0;
+  color: #555555;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.history-milestone > a {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  color: #111111;
+  text-decoration: none;
+}
+
+.history-empty {
+  color: #555;
+}
+
+.history-stories {
+  padding: 80px 8vw 0;
+}
+
+.history-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+  align-items: center;
+  padding: 60px 0;
+  border-bottom: 1px solid #292929;
+}
+
+.history-story-reverse .history-story-image {
+  order: 2;
+}
+
+.history-story-image {
+  min-height: 360px;
+  overflow: hidden;
+  background: #171717;
+}
+
+.history-story-image img {
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.emblem-image img {
+  object-fit: contain;
+  padding: 35px;
+}
+
+.history-story-copy h2,
+.history-motorsport h2 {
+  margin-bottom: 20px;
+  font-size: 46px;
+}
+
+.history-story-copy > p:not(.history-eyebrow),
+.history-motorsport > p:not(.history-eyebrow) {
+  max-width: 570px;
+  margin: 0;
+  color: #c3c3c3;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.history-motorsport {
+  padding: 90px 12vw 110px;
+  border-bottom: 1px solid #292929;
+  text-align: center;
+}
+
+.history-motorsport .history-eyebrow {
+  color: #d5b34d;
+}
+
+.history-motorsport > p:not(.history-eyebrow) {
+  margin: 0 auto;
+}
+
+.history-motorsport .history-text-link {
+  margin-top: 28px;
+}
+
+.history-footer {
+  padding-top: 40px;
+}
+
+@media (max-width: 800px) {
+  .history-hero-copy h1 {
+    font-size: 92px;
+  }
+
+  .history-hero {
+    min-height: 660px;
+    padding: 9vw 7vw;
+  }
+
+  .history-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 80px 8vw;
+  }
+
+  .history-intro .history-eyebrow {
+    grid-column: auto;
+  }
+
+  .masterpiece-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .masterpiece-feature {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 420px;
+  }
+
+  .history-story {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .history-story-reverse .history-story-image {
+    order: initial;
+  }
+}
+
+@media (max-width: 560px) {
+  .history-hero-copy h1 {
+    font-size: 58px;
+  }
+
+  .history-hero {
+    min-height: 620px;
+  }
+
+  .history-hero-index {
+    display: none;
+  }
+
+  .history-nav {
+    justify-content: flex-start;
+    padding: 17px 20px;
+  }
+
+  .history-masterpieces,
+  .history-timeline {
+    padding: 72px 20px;
+  }
+
+  .history-section-heading {
+    display: block;
+  }
+
+  .history-section-heading h2,
+  .history-intro h2 {
+    font-size: 42px;
+  }
+
+  .history-section-count,
+  .timeline-intro {
+    display: block;
+    margin-top: 18px;
+  }
+
+  .masterpiece-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .masterpiece-feature {
+    min-height: 340px;
+  }
+
+  .masterpiece-card {
+    min-height: 150px;
+  }
+
+  .history-milestone {
+    grid-template-columns: 58px minmax(0, 1fr) 34px;
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .history-milestone > span {
+    font-size: 15px;
+  }
+
+  .history-milestone h3 {
+    font-size: 12px;
+  }
+
+  .history-milestone p {
+    font-size: 12px;
+  }
+
+  .history-stories {
+    padding: 40px 20px 0;
+  }
+
+  .history-story-image,
+  .history-story-image img {
+    min-height: 260px;
+  }
+
+  .history-story-copy h2,
+  .history-motorsport h2 {
+    font-size: 36px;
+  }
+
+  .history-motorsport {
+    padding: 75px 5px 85px;
+  }
+}

@@ -1,0 +1,249 @@
+:root {
+  color-scheme: light;
+  --warranty-gutter: clamp(24px, 9vw, 145px);
+}
+
+body {
+  margin: 0;
+}
+
+.warranty-menu {
+  z-index: 40;
+}
+
+.warranty-hero {
+  position: relative;
+  min-height: clamp(520px, 70svh, 790px);
+  display: flex;
+  align-items: center;
+  padding: 150px var(--warranty-gutter) 70px;
+  overflow: hidden;
+  background: #101010;
+  color: #ffffff;
+}
+
+.warranty-hero-image,
+.warranty-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.warranty-hero-image {
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.warranty-hero-shade {
+  background: linear-gradient(90deg, rgba(0, 0, 0, .6), transparent 80%),
+    linear-gradient(0deg, rgba(0, 0, 0, .62), transparent 70%);
+}
+
+.warranty-breadcrumbs {
+  position: absolute;
+  z-index: 1;
+  top: 132px;
+  left: var(--warranty-gutter);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  color: rgba(255, 255, 255, .78);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.warranty-breadcrumbs a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.warranty-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.warranty-hero-copy p {
+  margin: 0 0 22px;
+  font-size: clamp(15px, 1.8vw, 24px);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.warranty-hero h1 {
+  margin: 0;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(64px, 9vw, 132px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.025em;
+}
+
+.warranty-scroll {
+  position: absolute;
+  z-index: 1;
+  right: var(--warranty-gutter);
+  bottom: 48px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+}
+
+.warranty-image-section {
+  padding: 80px var(--warranty-gutter);
+  background: #111111;
+}
+
+.warranty-image-wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.warranty-image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.warranty-copy-section,
+.warranty-protection-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+  gap: clamp(42px, 8vw, 120px);
+  align-items: center;
+  padding: 105px var(--warranty-gutter);
+  background: #ffffff;
+}
+
+.warranty-copy {
+  max-width: 710px;
+}
+
+.warranty-eyebrow {
+  margin: 0 0 20px;
+  color: #656565;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.warranty-copy h2 {
+  margin: 0 0 30px;
+  font-size: clamp(34px, 4.5vw, 64px);
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.warranty-copy > p:not(.warranty-eyebrow, .warranty-footnote) {
+  margin: 0 0 16px;
+  color: #343434;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.6;
+}
+
+.warranty-copy .warranty-footnote {
+  margin: 24px 0 0;
+  color: #515151;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.warranty-photo {
+  min-width: 0;
+  margin: 0;
+  aspect-ratio: .92;
+  overflow: hidden;
+  background: #e6e6e6;
+}
+
+.warranty-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.warranty-protection-section {
+  grid-template-columns: minmax(320px, .9fr) minmax(0, 1.1fr);
+  background: #f5f5f5;
+}
+
+.warranty-protection-photo {
+  aspect-ratio: 1.12;
+}
+
+.warranty-protection-section .warranty-copy {
+  max-width: 760px;
+}
+
+.warranty-protection-section .warranty-copy h2 {
+  font-size: clamp(34px, 4vw, 58px);
+}
+
+.warranty-footer {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .warranty-hero {
+    min-height: 78svh;
+    padding: 155px 24px 70px;
+  }
+
+  .warranty-hero-image {
+    object-position: 58% center;
+  }
+
+  .warranty-breadcrumbs {
+    top: 105px;
+    left: 24px;
+    font-size: 10px;
+  }
+
+  .warranty-hero h1 {
+    font-size: clamp(58px, 14vw, 92px);
+  }
+
+  .warranty-scroll {
+    right: 24px;
+    bottom: 25px;
+  }
+
+  .warranty-image-section {
+    padding: 35px 0;
+  }
+
+  .warranty-copy-section,
+  .warranty-protection-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 72px 24px;
+  }
+
+  .warranty-protection-photo {
+    order: 2;
+  }
+
+  .warranty-copy h2,
+  .warranty-protection-section .warranty-copy h2 {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .warranty-photo {
+    aspect-ratio: 1.08;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

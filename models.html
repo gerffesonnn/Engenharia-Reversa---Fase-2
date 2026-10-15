@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamborghini Models</title>
+  <link rel="stylesheet" href="models.css"> <!-- Importa o arquivo de estilos CSS externo -->
+</head>
+
+<body>
+
+  <!-- ===================== TOPO / NAVBAR ===================== -->
+  <!-- Barra de navegação fixa no topo da página -->
+  <header class="navbar">
+
+    <!-- Botão de menu hambúrguer (geralmente usado para abrir um menu lateral em telas menores) -->
+    <button class="menu-btn" aria-label="Menu">
+      <span class="hamburger-icon"></span> MENU
+    </button>
+
+    <!-- Logo da Lamborghini centralizado na navbar -->
+    <div class="logo">
+      <img src="imgs/logo_header_01.svg" alt="Lamborghini Logo">
+    </div>
+
+    <!-- Ícones do lado direito da navbar: chat e busca -->
+    <div class="nav-right">
+      <div class="models-language">
+        <button type="button" class="models-lang" data-i18n="language" aria-label="Open language selector">LANGUAGE</button>
+        <div class="language-panel" aria-label="Language selector">
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+          <button type="button" class="lang-option" data-lang="it">IT</button>
+          <button type="button" class="lang-option" data-lang="de">DE</button>
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="pt">PT</button>
+        </div>
+      </div>
+      <button class="icon-btn" aria-label="Chat"></button>
+      <button class="icon-btn" aria-label="Buscar"></button>
+    </div>
+  </header>
+
+  <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+  <main class="container">
+
+    <!-- ===================== CARROSSEL DE CARROS ===================== -->
+    <!-- Seção que contém os slides dos modelos de carro, com setas de navegação -->
+    <section class="carousel-container">
+
+      <!-- Seta para voltar ao slide anterior. Chama a função prevSlide() do script.js -->
+      <button class="arrow arrow-left" id="prevBtn" onclick="prevSlide()"></button>
+
+      <!-- ===================== SLIDE 1: REVUELTO ===================== -->
+      <!-- Este slide começa ativo (classe "active"), ou seja, é o primeiro exibido -->
+      <article class="slide active">
+
+        <!-- Logo/nome do modelo em imagem -->
+        <div class="badge-container">
+          <img src="imgs/revuelto_letra.svg" alt="Revuelto Logo" class="badge-img">
+        </div>
+
+        <!-- Slogan do modelo. O id é usado pelo JS para trocar o texto quando a aba muda -->
+        <h2 id="slogan-revuelto" class="model-slogan">FROM NOW ON</h2>
+
+        <!-- Imagem principal do carro. O id é usado pelo JS para trocar a foto ao mudar de aba -->
+        <div class="car-image-container">
+          <img id="car-img-revuelto" src="imgs/revuelto.png" alt="Lamborghini Revuelto" class="car-image">
+        </div>
+
+        <!-- Abas para alternar entre as versões do Revuelto (padrão e SV) -->
+        <!-- Cada botão chama switchTab() passando: o próprio botão, o id da imagem do carro,
+             o novo caminho da imagem, o id do slogan e o novo texto do slogan -->
+        <div class="model-tabs">
+          <button class="tab-btn" onclick="switchTab(this, 'car-img-revuelto', 'imgs/Revuelto_sv.png', 'slogan-revuelto', 'THE QUANTUM OF DRIVING')">REVUELTO SV</button>
+          <button class="tab-btn active" onclick="switchTab(this, 'car-img-revuelto', 'imgs/revuelto.png', 'slogan-revuelto', 'FROM NOW ON')">REVUELTO</button>
+        </div>
+
+        <!-- Barra de ações: link para explorar o modelo, iniciar configuração e fazer contato -->
+        <div class="action-bar">
+          <a href="revuelto-sv/revuelto-sv.html" class="btn-primary">EXPLORE THE MODEL <span></span></a>
+          <a href="#" class="action-link"><span>START CONFIGURATION</span> <span class="icon-box"></span></a>
+          <a href="#" class="action-link"><span>ENQUIRE</span> <span class="icon-box"></span></a>
+        </div>
+      </article>
+
+      <!-- ===================== SLIDE 2: URUS ===================== -->
+      <article class="slide">
+
+        <!-- Logo/nome do modelo Urus -->
+        <div class="badge-container">
+          <img src="imgs/urus_center_light.svg" alt="Urus Logo" class="badge-img">
+        </div>
+
+        <!-- Slogan do Urus, também controlado via JS -->
+        <h2 id="slogan-urus" class="model-slogan">URUS AT ITS PEAK</h2>
+
+        <!-- Imagem principal do Urus -->
+        <div class="car-image-container">
+          <img id="car-img-urus" src="imgs/urus_carro.png" alt="Lamborghini Urus" class="car-image">
+        </div>
+
+        <!-- Abas para alternar entre as versões Performante e SE do Urus -->
+        <div class="model-tabs">
+          <button class="tab-btn active" onclick="switchTab(this, 'car-img-urus', 'imgs/urus_carro.png', 'slogan-urus', 'URUS AT ITS PEAK')">URUS PERFORMANTE</button>
+          <button class="tab-btn" onclick="switchTab(this, 'car-img-urus', 'imgs/urus_se.png', 'slogan-urus', 'DARE TO LIVE MORE')">URUS SE</button>
+        </div>
+
+        <!-- Barra de ações do Urus (mesmo padrão do Revuelto) -->
+        <div class="action-bar">
+          <a href="urus-se/urus-se.html" class="btn-primary">EXPLORE THE MODELS <span></span></a>
+          <a href="#" class="action-link"><span>START CONFIGURATION</span> <span class="icon-box"></span></a>
+          <a href="#" class="action-link"><span>ENQUIRE</span> <span class="icon-box"></span></a>
+        </div>
+      </article>
+
+      <!-- ===================== SLIDE 3: TEMERARIO ===================== -->
+      <!-- Este modelo não tem abas de variantes, apenas uma versão -->
+      <article class="slide">
+
+        <!-- Logo/nome do modelo Temerario -->
+        <div class="badge-container">
+          <img src="imgs/temario_letra.png" alt="Temerario Logo" class="badge-img">
+        </div>
+
+        <!-- Slogan fixo do Temerario (sem id porque não é trocado via JS, já que não há abas) -->
+        <h2 class="model-slogan">YOU CAN'T HIDE WHO YOU ARE</h2>
+
+        <!-- Imagem principal do Temerario -->
+        <div class="car-image-container">
+          <img id="car-img-temerario" src="imgs/temario.png" alt="Lamborghini Temerario" class="car-image">
+        </div>
+
+        <!-- Barra de ações do Temerario -->
+        <div class="action-bar">
+          <a href="#" class="btn-primary">EXPLORE THE MODEL <span></span></a>
+          <a href="#" class="action-link"><span>START CONFIGURATION</span> <span class="icon-box"></span></a>
+          <a href="#" class="action-link"><span>ENQUIRE</span> <span class="icon-box"></span></a>
+        </div>
+      </article>
+
+      <!-- Seta para avançar para o próximo slide. Chama a função nextSlide() do script.js -->
+      <button class="arrow arrow-right" id="nextBtn" onclick="nextSlide()"></button>
+
+    </section>
+
+    <!-- ===================== INDICADORES DE PONTOS (DOTS) ===================== -->
+    <!-- Bolinhas que indicam qual slide está ativo. Clicar em uma vai direto para aquele slide -->
+    <!-- setSlide(0) = Revuelto, setSlide(1) = Urus, setSlide(2) = Temerario -->
+    <div class="dots">
+      <span class="dot active" onclick="setSlide(0)"></span>
+      <span class="dot" onclick="setSlide(1)"></span>
+      <span class="dot" onclick="setSlide(2)"></span>
+    </div>
+
+    <!-- ===================== TEXTO DE RODAPÉ / DISCLAIMER ===================== -->
+    <!-- Texto legal obrigatório com dados técnicos (consumo de energia, emissões de CO2, etc.) -->
+    <p class="disclaimer-text">
+      Revuelto: Combined energy consumption: 4,7 kWh/100 Km plus 15 l/100km; Combined CO2 emissions: 350 g/km; Combined
+      CO2 efficiency class: G; Combined fuel consumption with discharged battery: 17,9 l/100km; CO2 class with
+      discharged battery: G; Revuelto SV: Under approval, not available for sale
+    </p>
+
+  </main>
+
+  <!-- Importa o arquivo JavaScript responsável pela lógica do carrossel e troca de abas -->
+  <script src="script.js"></script>
+</body>
+
+</html>
