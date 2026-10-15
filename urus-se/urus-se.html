@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urus SE | Lamborghini</title>
+
+    <!-- Estilos próprios da página do Urus SE -->
+    <link rel="stylesheet" href="urus-se.css">
+
+</head>
+
+<body>
+
+    <!-- ===================== CABEÇALHO ===================== -->
+    <header>
+
+        <!-- Botão MENU: leva para a âncora "#menuOverlay" (menu overlay logo abaixo) -->
+        <!-- Ícone de "hambúrguer" desenhado com 3 linhas via SVG -->
+        <a href="#menuOverlay" class="menu-btn">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                <path d="M4 5h16"></path>
+                <path d="M4 12h16"></path>
+                <path d="M4 19h16"></path>
+
+            </svg>
+
+            <span>MENU</span>
+
+        </a>
+
+
+        <!-- Logo da Lamborghini, com link para a página inicial (um nível acima, pois esta página está numa subpasta) -->
+        <a href="../index.html" class="logo">
+
+            <img src="../imgs/logo_header_01.png.svg" alt="Lamborghini">
+
+        </a>
+
+
+        <!-- Ícones de ação: chat e busca -->
+        <div class="acoes">
+
+            <!-- Ícone de chat: abre o overlay do chat via âncora "#chat" (definido no fim da página) -->
+            <a href="#chat" class="chat">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                    <path
+                        d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z">
+                    </path>
+
+                    <path
+                        d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1">
+                    </path>
+
+                </svg>
+
+            </a>
+
+
+            <!-- Ícone de lupa: link para a página de busca (um nível acima) -->
+            <a href="../search.html" class="lupa">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="8"></circle>
+
+                    <path d="m21 21-4.3-4.3"></path>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ===================== MENU OVERLAY ===================== -->
+    <!-- Fica escondido por padrão via CSS e aparece quando a URL aponta para "#menuOverlay" -->
+    <!-- MENU -->
+
+    <div class="menu-overlay" id="menuOverlay">
+
+        <!-- Cabeçalho do overlay com botão de fechar -->
+        <div class="menu-header">
+
+            <a href="#" class="close-btn">
+                ✕ MENU
+            </a>
+
+        </div>
+
+
+        <div class="menu-content">
+
+            <!-- Coluna 1: Home, Models, Beyond + subitens -->
+            <div class="menu-column">
+
+                <a href="../index.html" class="main-link">
+                    HOME
+                </a>
+
+                <a href="#" class="main-link">
+                    MODELS
+                </a>
+
+                <a href="#" class="main-link">
+                    BEYOND
+                </a>
+
+                <hr>
+
+                <a href="#" class="sub-link">
+                    Design
+                </a>
+
+                <a href="#" class="sub-link">
+                    Financial services
+                </a>
+
+                <a href="#" class="sub-link">
+                    Lounge
+                </a>
+
+            </div>
+
+
+            <!-- Coluna 2: Ownership, Company, Store + subitens -->
+            <div class="menu-column">
+
+                <a href="#" class="main-link">
+                    OWNERSHIP
+                </a>
+
+                <a href="#" class="main-link">
+                    COMPANY
+                </a>
+
+                <a href="#" class="main-link">
+                    STORE
+                </a>
+
+                <hr>
+
+                <a href="#" class="sub-link">
+                    Sustainability
+                </a>
+
+                <a href="../warranty-extension.html" class="sub-link">
+                    Warranty extension
+                </a>
+
+                <a href="#" class="sub-link">
+                    Club
+                </a>
+
+            </div>
+
+
+            <!-- Coluna 3: Dealerships, Motorsport, News + subitens -->
+            <div class="menu-column">
+
+                <a href="#" class="main-link">
+                    DEALERSHIPS
+                </a>
+
+                <a href="#" class="main-link">
+                    MOTORSPORT
+                </a>
+
+                <a href="#" class="main-link">
+                    NEWS
+                </a>
+
+                <hr>
+
+                <a href="../history.html" class="sub-link">
+                    History
+                </a>
+
+                <a href="#" class="sub-link">
+                    Driving Programs
+                </a>
+
+                <a href="#" class="sub-link">
+                    Podcast
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main>
+
+        <!-- ===================== HERO (BANNER PRINCIPAL) ===================== -->
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <!-- Imagem de fundo do banner -->
+            <img src="../imgs/urus.jpg" alt="Lamborghini Urus SE">
+
+            <!-- Camada escura/gradiente sobre a imagem para melhorar a legibilidade do texto -->
+            <div class="hero-overlay"></div>
+
+
+            <!-- Texto e chamada para ação sobre o banner -->
+            <div class="hero-content">
+
+                <p>THE SUV'S MAXIMUM EXPRESSION</p>
+
+                <h1>URUS SE</h1>
+
+                <span>POWER. PERFORMANCE. ELECTRIFIED.</span>
+
+                <!-- Rola a página até a seção "concept" (âncora #concept) -->
+                <a href="#concept" class="discover">
+                    DISCOVER MORE
+                </a>
+
+            </div>
+
+
+            <!-- Linhas diagonais decorativas usadas no design da seção -->
+            <div class="diagonal-line line-1"></div>
+
+            <div class="diagonal-line line-2"></div>
+
+        </section>
+
+
+        <!-- ===================== SEÇÃO 01: CONCEPT ===================== -->
+        <!-- CONCEPT -->
+
+        <section class="section concept" id="concept">
+
+            <!-- Número da seção, usado como elemento visual/decorativo -->
+            <div class="section-number">
+                01
+            </div>
+
+
+            <div class="section-text">
+
+                <p class="label">
+                    SUPER SUV
+                </p>
+
+                <h2>
+                    URUS<br>
+                    SE
+                </h2>
+
+                <h3>
+                    THE NEW GENERATION
+                </h3>
+
+                <p>
+                    The Urus SE combines the performance and distinctive
+                    design of Lamborghini with an electrified powertrain.
+                    It represents a new chapter for the Super SUV.
+                </p>
+
+            </div>
+
+
+            <div class="section-image">
+
+                <img src="../imgs/urus-se.2.webp" alt="Urus SE">
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== SEÇÃO 02: DESIGN ===================== -->
+        <!-- DESIGN -->
+
+        <section class="section design">
+
+            <!-- Nesta seção a imagem vem antes do texto (layout invertido em relação à seção Concept) -->
+            <div class="section-image">
+
+                <img src="../imgs/urus-se.webp" alt="Urus SE design">
+
+            </div>
+
+
+            <div class="section-text">
+
+                <div class="section-number">
+                    02
+                </div>
+
+                <p class="label">
+                    DESIGN
+                </p>
+
+                <h2>
+                    BOLD<br>
+                    ATTITUDE
+                </h2>
+
+                <p>
+                    Sharp lines, powerful proportions and unmistakable
+                    Lamborghini details give the Urus SE a strong and
+                    aggressive presence on the road.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== SEÇÃO 03: PERFORMANCE ===================== -->
+        <!-- PERFORMANCE -->
+
+        <section class="performance">
+
+            <div class="performance-title">
+
+                <div class="section-number">
+                    03
+                </div>
+
+                <p class="label">
+                    PERFORMANCE
+                </p>
+
+                <h2>
+                    V8<br>
+                    HYBRID<br>
+                    POWER
+                </h2>
+
+            </div>
+
+
+            <!-- Grade de especificações técnicas do motor -->
+            <div class="specifications">
+
+                <div class="spec">
+
+                    <span>ENGINE</span>
+
+                    <strong>V8</strong>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>POWERTRAIN</span>
+
+                    <strong>HYBRID</strong>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>POWER</span>
+
+                    <strong>800 CV</strong>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>TOP SPEED</span>
+
+                    <strong>312 KM/H</strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== SEÇÃO 04: DRIVING MODES ===================== -->
+        <!-- DRIVING MODES -->
+
+        <section class="modes">
+
+            <div class="modes-text">
+
+                <div class="section-number">
+                    04
+                </div>
+
+                <p class="label">
+                    DRIVING EXPERIENCE
+                </p>
+
+                <h2>
+                    EVERY ROAD.<br>
+                    YOUR WAY.
+                </h2>
+
+                <p>
+                    Different driving modes allow the Urus SE to adapt
+                    to different road conditions while maintaining the
+                    unmistakable Lamborghini character.
+                </p>
+
+            </div>
+
+
+            <!-- Lista dos 5 modos de condução disponíveis -->
+            <div class="mode-list">
+
+                <div>
+                    <span>01</span>
+                    <strong>STRADA</strong>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <strong>SPORT</strong>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <strong>CORSA</strong>
+                </div>
+
+                <div>
+                    <span>04</span>
+                    <strong>NEVE</strong>
+                </div>
+
+                <div>
+                    <span>05</span>
+                    <strong>TERRA</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== SEÇÃO FINAL ===================== -->
+        <!-- FINAL -->
+
+        <section class="final-section">
+
+            <p>THE NEW SUPER SUV</p>
+
+            <h2>
+                URUS SE
+            </h2>
+
+            <!-- Link de volta para a página inicial -->
+            <a href="../index.html">
+                BACK TO HOME
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===================== OVERLAY DO CHAT (ASK ME) ===================== -->
+    <!-- Fica escondido por padrão via CSS e aparece quando a URL aponta para "#chat" -->
+    <!-- (ativado pelo ícone de chat no header) -->
+    <!-- CHAT -->
+
+    <div class="chat-overlay" id="chat">
+
+        <div class="chat-container">
+
+            <!-- Cabeçalho do chat com título e botão de fechar -->
+            <div class="chat-header">
+
+                <h2>ASK ME</h2>
+
+                <a href="#" class="chat-close">
+                    ✕
+                </a>
+
+            </div>
+
+
+            <div class="chat-body">
+
+                <!-- Mensagem de boas-vindas do assistente virtual -->
+                <div class="chat-msg">
+
+                    <p>
+                        Welcome to the Lamborghini world!
+                        I'm your Virtual Assistant, ready to guide
+                        you through the world of Lamborghini.
+                    </p>
+
+                </div>
+
+
+                <!-- Botões de tópicos rápidos para o usuário escolher -->
+                <div class="chat-topics">
+
+                    <button class="topic-btn">
+                        Models
+                    </button>
+
+                    <button class="topic-btn">
+                        Exclusive experiences
+                    </button>
+
+                    <button class="topic-btn">
+                        Customization and services
+                    </button>
+
+                    <button class="topic-btn">
+                        Discover Lamborghini
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Campo de input inferior para digitar e enviar a pergunta -->
+            <div class="chat-footer">
+
+                <input type="text" placeholder="Ask your question here">
+
+                <button class="chat-send">
+                    ➤
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

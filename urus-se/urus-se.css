@@ -1,0 +1,796 @@
+/* Reset básico: zera margens/paddings padrão, box-sizing considera padding/border
+   dentro da largura/altura definidas, e define a fonte padrão do site */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Faz a rolagem até âncoras (como "#concept") ser suave em vez de instantânea */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fundo preto, texto branco (tema dark). overflow-x: hidden evita rolagem
+   horizontal indesejada */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+/* ===================== HEADER ===================== */
+/* Header fixo no topo, flutuando sobre o conteúdo (position: fixed + z-index alto) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 9999;
+
+    /* Gradiente escuro que desaparece gradualmente, para o header ficar legível
+       sobre a imagem do hero sem precisar de um fundo sólido */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        transparent
+    );
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+/* Leve transparência ao passar o mouse no botão de menu */
+.menu-btn:hover {
+    opacity: 0.7;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+.acoes {
+    display: flex;
+    gap: 20px;
+}
+
+.acoes a {
+    color: white;
+}
+
+/* Transição suave para o efeito de zoom nos ícones ao passar o mouse */
+.acoes svg {
+    transition: transform 0.2s;
+}
+
+.acoes a:hover svg {
+    transform: scale(1.1);
+}
+
+
+/* ===================== MENU ===================== */
+/* Overlay em tela cheia, escondido por padrão (display: none) */
+.menu-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #000000;
+
+    z-index: 10000;
+
+    padding: 40px 80px;
+
+    display: none;
+
+    overflow-y: auto; /* permite rolar o menu se o conteúdo for maior que a tela */
+}
+
+/* Quando a URL aponta para "#menuOverlay" (id do menu), o CSS :target o exibe */
+.menu-overlay:target {
+    display: block;
+}
+
+.menu-header {
+    margin-bottom: 50px;
+}
+
+.close-btn {
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+/* Grade com 3 colunas iguais para os links do menu */
+.menu-content {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 60px;
+}
+
+.menu-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Links principais do menu, com linha divisória embaixo de cada um */
+.main-link {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #222;
+
+    transition: 0.3s;
+}
+
+.main-link:hover {
+    color: #999;
+}
+
+/* Linha divisória extra entre os links principais e os subitens */
+.menu-column hr {
+    border: 0;
+
+    border-top: 1px solid #1a1a1a;
+
+    margin: 25px 0;
+}
+
+/* Subitens do menu, menores e em cinza, ficam brancos no hover */
+.sub-link {
+    color: #888;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #111;
+}
+
+.sub-link:hover {
+    color: white;
+}
+
+
+/* ===================== HERO ===================== */
+/* Seção de banner em tela cheia (100vh) */
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+/* Imagem de fundo cobrindo toda a seção, cortada proporcionalmente (object-fit: cover) */
+.hero > img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* Gradiente escuro sobre a imagem, mais forte à esquerda, para destacar o texto */
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.45)
+        );
+}
+
+/* Bloco de texto posicionado no canto inferior esquerdo do hero */
+.hero-content {
+    position: absolute;
+
+    left: 8%;
+    bottom: 100px;
+
+    z-index: 5;
+}
+
+.hero-content p {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+/* Título gigante e responsivo: clamp(mínimo, ideal, máximo) ajusta o tamanho
+   da fonte conforme a largura da tela, entre 65px e 150px */
+.hero-content h1 {
+    font-size: clamp(65px, 10vw, 150px);
+
+    line-height: 0.85;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+}
+
+.hero-content span {
+    display: block;
+
+    margin-top: 20px;
+
+    font-size: 15px;
+
+    letter-spacing: 4px;
+}
+
+/* Botão "DISCOVER MORE": fundo branco, inverte as cores ao passar o mouse */
+.discover {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 15px 30px;
+
+    background-color: white;
+
+    color: black;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.discover:hover {
+    background-color: black;
+
+    color: white;
+}
+
+
+/* ===================== LINHAS DECORATIVAS ===================== */
+/* Linhas diagonais finas usadas como elemento gráfico no hero */
+.diagonal-line {
+    position: absolute;
+
+    width: 500px;
+    height: 1px;
+
+    background-color: white;
+
+    opacity: 0.6;
+
+    transform: rotate(-35deg);
+
+    right: -100px;
+}
+
+.line-1 {
+    bottom: 170px;
+}
+
+.line-2 {
+    bottom: 125px;
+}
+
+
+/* ===================== SEÇÕES (padrão texto + imagem) ===================== */
+/* Layout em grid de 3 colunas: número da seção | texto | imagem */
+.section {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 10% 40% 50%;
+
+    align-items: center;
+
+    padding: 100px 6%;
+}
+
+.section-number {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+}
+
+.section-text {
+    padding: 40px;
+}
+
+.label {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #bbb;
+
+    margin-bottom: 25px;
+}
+
+/* Título grande e responsivo da seção, também usando clamp() */
+.section-text h2 {
+    font-size: clamp(55px, 7vw, 100px);
+
+    line-height: 0.85;
+
+    margin-bottom: 30px;
+}
+
+.section-text h3 {
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+}
+
+/* O último parágrafo do texto (a descrição) tem largura máxima e cor mais apagada */
+.section-text p:last-child {
+    max-width: 470px;
+
+    color: #999;
+
+    line-height: 1.8;
+}
+
+.section-image {
+    height: 600px;
+
+    overflow: hidden; /* necessário para o efeito de zoom não "vazar" para fora do box */
+}
+
+.section-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s;
+}
+
+/* Efeito de leve zoom na imagem ao passar o mouse sobre a seção */
+.section-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ===================== SEÇÃO DESIGN (variação do padrão acima) ===================== */
+/* Sobrescreve o grid padrão da .section: aqui são só 2 colunas (imagem maior, texto menor) */
+.design {
+    grid-template-columns: 55% 45%;
+}
+
+.design .section-text {
+    padding-left: 80px;
+}
+
+
+/* ===================== SEÇÃO PERFORMANCE ===================== */
+.performance {
+    min-height: 80vh;
+
+    padding: 120px 8%;
+
+    display: grid;
+
+    grid-template-columns: 40% 60%;
+
+    align-items: center;
+}
+
+.performance-title h2 {
+    font-size: clamp(55px, 7vw, 100px);
+
+    line-height: 0.8;
+}
+
+/* Grade de especificações técnicas ocupando as 2 colunas do grid pai (grid-column: 1 / 3) */
+.specifications {
+    grid-column: 1 / 3;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 70px;
+
+    border-top: 1px solid #333;
+}
+
+/* Cada especificação tem uma borda direita, criando divisórias verticais entre elas */
+.spec {
+    padding: 30px 20px;
+
+    border-right: 1px solid #333;
+}
+
+.spec span {
+    display: block;
+
+    color: #777;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.spec strong {
+    font-size: 25px;
+}
+
+
+/* ===================== SEÇÃO MODOS DE CONDUÇÃO ===================== */
+.modes {
+    min-height: 100vh;
+
+    padding: 120px 8%;
+
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+
+    align-items: center;
+}
+
+.modes-text {
+    padding-right: 70px;
+}
+
+.modes-text h2 {
+    font-size: clamp(50px, 6vw, 90px);
+
+    line-height: 0.85;
+
+    margin-bottom: 30px;
+}
+
+.modes-text p:last-child {
+    color: #999;
+
+    line-height: 1.8;
+
+    max-width: 450px;
+}
+
+.mode-list {
+    border-top: 1px solid #333;
+}
+
+/* Cada modo de condução em uma linha, com um pequeno efeito de "deslizar para a direita" no hover */
+.mode-list div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid #333;
+
+    transition: 0.3s;
+}
+
+.mode-list div:hover {
+    padding-left: 20px;
+}
+
+.mode-list span {
+    color: #777;
+}
+
+.mode-list strong {
+    font-size: 25px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ===================== SEÇÃO FINAL ===================== */
+.final-section {
+    height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.final-section p {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #888;
+
+    margin-bottom: 25px;
+}
+
+.final-section h2 {
+    font-size: clamp(60px, 10vw, 150px);
+
+    line-height: 0.8;
+}
+
+/* Botão "BACK TO HOME": apenas contorno branco, inverte as cores no hover */
+.final-section a {
+    margin-top: 50px;
+
+    padding: 15px 30px;
+
+    border: 1px solid white;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.final-section a:hover {
+    background-color: white;
+
+    color: black;
+}
+
+
+/* ===================== OVERLAY DO CHAT ===================== */
+/* Escondido por padrão (opacity: 0 + pointer-events: none), cobre a tela toda */
+.chat-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+
+    justify-content: flex-end; /* joga o painel do chat para a direita da tela */
+
+    z-index: 11000;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.3s;
+}
+
+/* Quando a URL aponta para "#chat", o :target torna o overlay visível e clicável */
+.chat-overlay:target {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+/* Painel do chat: ocupa a altura toda, largura máxima de 420px */
+.chat-container {
+    width: 100%;
+
+    max-width: 420px;
+
+    height: 100%;
+
+    background-color: #1e1e1e;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.chat-header {
+    background-color: #383838;
+
+    padding: 18px 24px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.chat-header h2 {
+    font-size: 18px;
+}
+
+.chat-close {
+    color: white;
+
+    text-decoration: none;
+}
+
+/* Corpo do chat: área rolável onde ficam as mensagens */
+.chat-body {
+    flex: 1;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+/* Balão de mensagem com cantos arredondados (exceto o inferior esquerdo, efeito "balão de fala") */
+.chat-msg {
+    background-color: #333;
+
+    padding: 16px;
+
+    border-radius: 20px 20px 20px 4px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+/* Botões de tópicos sugeridos, com quebra de linha automática */
+.chat-topics {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+/* Botão de tópico em formato "pill" (cantos bem arredondados) */
+.topic-btn {
+    background-color: #2a2a2a;
+
+    border: 1px solid #444;
+
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+}
+
+/* Rodapé do chat: onde fica o campo de digitar e o botão de enviar */
+.chat-footer {
+    padding: 16px 20px;
+
+    border-top: 1px solid #2a2a2a;
+
+    display: flex;
+}
+
+.chat-footer input {
+    flex: 1;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    outline: none;
+}
+
+.chat-send {
+    background: none;
+
+    border: none;
+
+    color: white;
+}
+
+
+/* ===================== RESPONSIVO ===================== */
+/* Ajustes aplicados quando a tela tem 900px de largura ou menos (tablets/celulares) */
+@media (max-width: 900px) {
+
+    header {
+        padding: 20px 25px;
+    }
+
+    .menu-overlay {
+        padding: 30px;
+    }
+
+    /* O menu, que era em 3 colunas, passa a ser 1 coluna só (empilhado) */
+    .menu-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* As seções que usavam grid de colunas passam a ser blocos empilhados verticalmente */
+    .section,
+    .design,
+    .performance,
+    .modes {
+        display: block;
+
+        padding: 80px 7%;
+    }
+
+    .section-text,
+    .design .section-text,
+    .modes-text {
+        padding: 40px 0;
+    }
+
+    /* Imagens das seções ficam mais baixas para caber melhor na tela menor */
+    .section-image {
+        height: 450px;
+    }
+
+    /* A grade de especificações passa de 4 para 2 colunas */
+    .specifications {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Ajusta a posição e o tamanho do texto do hero para telas menores */
+    .hero-content {
+        left: 7%;
+        bottom: 80px;
+    }
+
+    .hero-content h1 {
+        font-size: 70px;
+    }
+}

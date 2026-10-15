@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurador - Revuelto SV</title>
+
+  <!-- Fontes Google: preconnect acelera a conexão com os servidores de fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Estilos globais do site -->
+  <link rel="stylesheet" href="global.css">
+</head>
+<body class="pagina-config">
+
+  <main class="palco">
+
+    <!-- Inputs de rádio "escondidos" (via CSS) que controlam qual cor do carro é exibida.       -->
+    <!-- Como estão marcados/desmarcados via clique nas amostras de cor (labels lá embaixo),      -->
+    <!-- o CSS usa essas seleções para mostrar a imagem do carro correspondente (sem precisar JS). -->
+    <input type="radio" name="cor" id="cor-padrao" checked>
+    <input type="radio" name="cor" id="cor-azul">
+    <input type="radio" name="cor" id="cor-vermelho">
+    <input type="radio" name="cor" id="cor-branco">
+
+    <!-- ===================== TOPO DO CONFIGURADOR ===================== -->
+    <div class="cfg-topo">
+      <!-- Seta de voltar atualizada para subir de pasta (../index.html) -->
+      <a href="../index.html" class="cfg-voltar" aria-label="Voltar">
+        <svg class="icone" viewBox="0 0 24 24" width="22" height="22">
+          <line x1="20" y1="12" x2="4" y2="12" />
+          <path d="M10 6 L4 12 L10 18" />
+        </svg>
+      </a>
+
+      <div>
+        <!-- Nome do modelo -->
+        <h1 class="cfg-nome">REVUELTO <span>SV</span></h1>
+
+        <!-- Especificações rápidas exibidas ao lado do nome -->
+        <ul class="cfg-specs">
+          <li>
+            <small>POTENCIA</small>
+            <strong>1065 CV</strong>
+          </li>
+          <li>
+            <small>VELOCIDADE MAX.</small>
+            <strong>345 KM/H</strong>
+          </li>
+          <li>
+            <small>0-100 KM/H</small>
+            <strong>2.4 S</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===================== FERRAMENTAS (IDIOMA E L-CODE) ===================== -->
+    <div class="cfg-ferramentas">
+      <!-- Ícone de globo: abre o modal de troca de idioma via âncora "#modal-idioma" -->
+      <a href="#modal-idioma" aria-label="Mudar idioma">
+        <svg class="icone" viewBox="0 0 24 24" width="20" height="20">
+          <circle cx="12" cy="12" r="9" />
+          <ellipse cx="12" cy="12" rx="4" ry="9" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+        </svg>
+      </a>
+      <!-- Botão L-Code: abre o modal de carregar/gerar código de configuração via âncora "#modal-lcode" -->
+      <a href="#modal-lcode" aria-label="L-Code" class="cfg-lcode-botao">
+        <span>1 2 3<br>4</span>
+        <svg class="icone" viewBox="0 0 24 24" width="12" height="12">
+          <circle cx="10" cy="10" r="6" />
+          <line x1="14.5" y1="14.5" x2="21" y2="21" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- ===================== IMAGEM DO CARRO ===================== -->
+    <!-- As imagens ficam sobrepostas; o CSS mostra apenas a correspondente ao rádio marcado acima -->
+    <div class="cfg-carro">
+      <img class="carro-padrao" src="../imgs/revuelto-sv.png" alt="Revuelto SV cinzento">
+      <img class="carro-azul"     src="../imgs/revuelto-sv-azul.png"     alt="Revuelto SV azul">
+      <img class="carro-vermelho" src="../imgs/revuelto-sv-vermelho.png" alt="Revuelto SV vermelho">
+      <img class="carro-branco"   src="../imgs/revuelto-sv-branco.png"   alt="Revuelto SV branco">
+    </div>
+
+    <!-- ===================== SELETOR DE CORES ===================== -->
+    <div class="cfg-cores">
+      <!-- Cada label está ligada (via "for") a um input de rádio da cor correspondente.  -->
+      <!-- Clicar na amostra marca o rádio e o CSS troca a imagem do carro e o nome exibido. -->
+      <div class="cfg-amostras">
+        <label for="cor-padrao"  class="amostra amostra-padrao"><span></span></label>
+        <label for="cor-azul"     class="amostra amostra-azul"><span></span></label>
+        <label for="cor-vermelho" class="amostra amostra-vermelho"><span></span></label>
+        <label for="cor-branco"   class="amostra amostra-branco"><span></span></label>
+      </div>
+      <!-- Nome de cada cor; o CSS mostra apenas o nome da cor atualmente selecionada -->
+      <p class="nome-cor nome-padrao">PADRAO</p>
+      <p class="nome-cor nome-azul">AD PERSONAM : AZZURRO THETYS</p>
+      <p class="nome-cor nome-vermelho">AD PERSONAM : ROSSO MARS</p>
+      <p class="nome-cor nome-branco">AD PERSONAM : BIANCO MONOCERUS</p>
+    </div>
+
+    <!-- Botão para dar início à configuração do carro -->
+    <a href="#" class="cfg-start">INICIAR CONFIGURACAO</a>
+
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="cfg-rodape">
+    <!-- Aviso legal: veículo ainda não homologado para venda -->
+    <p>O veiculo ainda nao esta a venda e, portanto, nao esta sujeito a Diretiva 1999/94/CE. Os dados de consumo de combustivel e emissoes estao em fase de homologacao.</p>
+    <a href="#">PRIVACIDADE E TERMOS</a>
+  </footer>
+
+  <!-- ===================== MODAL: TROCA DE IDIOMA ===================== -->
+  <!-- Fica escondido por padrão via CSS e aparece quando a URL aponta para "#modal-idioma" -->
+  <div class="modal" id="modal-idioma">
+    <div class="modal-caixa modal-idioma">
+      <div class="modal-topo">
+        <div>
+          <h2>Alterar idioma</h2>
+          <p>Selecione o idioma do configurador</p>
+        </div>
+        <!-- Botão de fechar o modal (link "#" que provavelmente remove a âncora ativa) -->
+        <a href="#" class="modal-fechar" aria-label="Fechar">
+          <svg class="icone" viewBox="0 0 24 24" width="18" height="18">
+            <line x1="6" y1="6" x2="18" y2="18" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Lista de idiomas disponíveis, cada um com a bandeira desenhada em SVG e um rádio button -->
+      <div class="lista-idiomas">
+        <!-- Inglês (bandeira do Reino Union Jack desenhada com linhas e retângulos SVG) -->
+        <label class="idioma">
+          <svg class="bandeira" viewBox="0 0 60 30">
+            <rect width="60" height="30" fill="#012169" />
+            <path d="M0 0 L60 30 M60 0 L0 30" stroke="#fff" stroke-width="6" />
+            <path d="M0 0 L60 30 M60 0 L0 30" stroke="#C8102E" stroke-width="2" />
+            <path d="M30 0 V30 M0 15 H60" stroke="#fff" stroke-width="10" />
+            <path d="M30 0 V30 M0 15 H60" stroke="#C8102E" stroke-width="6" />
+          </svg>
+          <span>Ingles</span>
+          <input type="radio" name="idioma" class="lang-option" data-lang="en" checked>
+        </label>
+
+        <!-- Alemão (bandeira em 3 faixas horizontais: preto, vermelho, amarelo) -->
+        <label class="idioma">
+          <svg class="bandeira" viewBox="0 0 3 3">
+            <rect width="3" height="1" y="0" fill="#000" />
+            <rect width="3" height="1" y="1" fill="#DD0000" />
+            <rect width="3" height="1" y="2" fill="#FFCE00" />
+          </svg>
+          <span>Alemao</span>
+          <input type="radio" name="idioma" class="lang-option" data-lang="de">
+        </label>
+
+        <!-- Italiano (bandeira em 3 faixas verticais: verde, branco, vermelho) -->
+        <label class="idioma">
+          <svg class="bandeira" viewBox="0 0 3 3">
+            <rect width="1" height="3" x="0" fill="#009246" />
+            <rect width="1" height="3" x="1" fill="#fff" />
+            <rect width="1" height="3" x="2" fill="#CE2B37" />
+          </svg>
+          <span>Italiano</span>
+          <input type="radio" name="idioma" class="lang-option" data-lang="it">
+        </label>
+
+        <!-- Francês -->
+        <label class="idioma">
+          <svg class="bandeira" viewBox="0 0 3 2">
+            <rect width="1" height="2" x="0" fill="#002395" />
+            <rect width="1" height="2" x="1" fill="#fff" />
+            <rect width="1" height="2" x="2" fill="#ED2939" />
+          </svg>
+          <span>Français</span>
+          <input type="radio" name="idioma" class="lang-option" data-lang="fr">
+        </label>
+
+        <!-- Português -->
+        <label class="idioma">
+          <svg class="bandeira" viewBox="0 0 3 2">
+            <rect width="1.2" height="2" x="0" fill="#006600" />
+            <rect width="1.8" height="2" x="1.2" fill="#FF0000" />
+          </svg>
+          <span>Português</span>
+          <input type="radio" name="idioma" class="lang-option" data-lang="pt">
+        </label>
+      </div>
+
+      <!-- Botões de ação do modal: cancelar ou confirmar (confirmar aparece desativado até uma seleção ser feita) -->
+      <div class="modal-botoes">
+        <a href="#" class="modal-btn modal-btn-contorno">CANCELAR</a>
+        <span class="modal-btn modal-btn-desativado">CONFIRMAR</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MODAL: L-CODE ===================== -->
+  <!-- Fica escondido por padrão via CSS e aparece quando a URL aponta para "#modal-lcode" -->
+  <!-- L-Code é o código que permite salvar/carregar uma configuração específica do carro -->
+  <div class="modal" id="modal-lcode">
+    <div class="modal-caixa modal-lcode">
+      <div class="modal-topo">
+        <h2>L-Code</h2>
+        <a href="#" class="modal-fechar" aria-label="Fechar">
+          <svg class="icone" viewBox="0 0 24 24" width="18" height="18">
+            <line x1="6" y1="6" x2="18" y2="18" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="lcode-colunas">
+        <!-- Coluna 1: aviso de que não há configuração salva para gerar o L-Code -->
+        <div class="lcode-coluna">
+          <h3>Nenhuma configuracao disponivel</h3>
+          <p>Como nenhum carro esta selecionado no momento, nao e possivel gerar o L-Code. Tente novamente depois de iniciar uma configuracao.</p>
+        </div>
+
+        <!-- Coluna 2: campo para o usuário inserir um L-Code existente e carregar a configuração salva -->
+        <div class="lcode-coluna">
+          <h3>Carregar uma configuracao</h3>
+          <p>Use um L-Code para editar uma configuracao anterior</p>
+          <input type="text" class="lcode-campo" placeholder="Insira o L-Code aqui">
+          <span class="modal-btn modal-btn-desativado">CARREGAR CONFIGURACAO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

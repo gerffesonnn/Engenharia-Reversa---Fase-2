@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamborghini Revuelto SV | Automobili Lamborghini</title>
+    <!-- Estilos próprios da página do Revuelto SV -->
+    <link rel="stylesheet" href="revuelto.css">
+    <!-- Fontes Google usadas no design (Oswald para títulos, Roboto para textos) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+<body class="page-revuelto-sv">
+    <!-- ===================== HEADER / NAVIGATION ===================== -->
+    <header>
+        <!-- Botão MENU com ícone de hambúrguer (3 spans viram as 3 linhas via CSS) -->
+        <!-- Link direto para a página inicial (um nível acima, pois esta página está em subpasta) -->
+        <a href="../index.html" class="menu-btn">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            MENU
+        </a>
+
+        <!-- Logo da Lamborghini, também com link para a home -->
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../imgs/logo_header_01.png.svg" alt="Lamborghini Logo">
+            </a>
+        </div>
+
+        <!-- Ícones de ação: busca e chat (aqui ainda sem destino real, href="#") -->
+        <div class="acoes">
+            <a href="#" class="lupa">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </a>
+            <a href="#" class="chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <!-- Banner principal com imagem de fundo, título, subtítulo e estatísticas rápidas do carro -->
+    <section class="sv-hero">
+        <div class="sv-hero-bg">
+            <!-- Imagem de fundo do hero, ocupando 100% do espaço e cortada proporcionalmente (object-fit: cover) -->
+            <img src="./imgs/s1_d.jpg" alt="Lamborghini Revuelto SV" style="width:100%; height:100%; object-fit:cover;">
+            <!-- Gradiente sobreposto à imagem para melhorar a legibilidade do texto -->
+            <div class="overlay-gradient"></div>
+        </div>
+        <div class="sv-hero-content">
+            <p class="tagline">FROM NOW ON, THE FUTURE</p>
+            <h1>REVUELTO SV</h1>
+            <p class="subtitle">THE FIRST V12 HYBRID HPEV SUPER VELOCE</p>
+
+            <!-- Estatísticas rápidas de desempenho exibidas no hero -->
+            <div class="sv-quick-stats">
+                <div class="stat">
+                    <span class="num">1065 CV</span>
+                    <span class="label">MAX POWER</span>
+                </div>
+                <div class="stat">
+                    <span class="num">2.4 s</span>
+                    <span class="label">0-100 KM/H</span>
+                </div>
+                <div class="stat">
+                    <span class="num">&gt;350 km/h</span>
+                    <span class="label">TOP SPEED</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== OVERVIEW SECTION ===================== -->
+    <!-- Texto de introdução/resumo sobre o carro -->
+    <section class="sv-section sv-overview">
+        <div class="container">
+            <div class="text-block">
+                <p class="section-label">OVERVIEW</p>
+                <h2>THE QUANTUM LEAP IN DRIVING EXPERIENCE</h2>
+                <p class="description">
+                    The Revuelto SV represents a revolutionary step in Lamborghini's history. Combining a naturally
+                    aspirated 6.5-liter V12 engine with three high-performance electric motors, it delivers an unmatched
+                    output of 1065 CV. Lightweight carbon fiber monocoque design and GT3-derived aerodynamics establish
+                    a new benchmark for super sports cars.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FEATURE GRID 1: DESIGN & AERO ===================== -->
+    <!-- Bloco com imagem à esquerda e texto à direita (layout padrão, sem a classe "reverse") -->
+    <section class="sv-feature-split">
+        <div class="split-image">
+            <img src="./imgs/RevueltoSV_01-Aero-H_Card-BrakeCooling-last-optim.jpg" alt="Revuelto SV Design">
+        </div>
+        <div class="split-content">
+            <p class="section-label">DESIGN & AERODYNAMICS</p>
+            <h3>SHAPED BY THE WIND</h3>
+            <p>
+                Every line of the Revuelto SV is sculpted for ultimate aerodynamic efficiency. Featuring a double-wing
+                profile fixed rear spoiler and Y-shaped LED architecture, the body creates 80% more downforce compared
+                to the standard model while providing optimal cooling to the high-revving hybrid engine.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================== FEATURE GRID 2: POWERTRAIN ===================== -->
+    <!-- Mesmo bloco de layout, mas com a classe "reverse" para inverter a ordem (texto e imagem trocam de lado) -->
+    <section class="sv-feature-split reverse">
+        <div class="split-image">
+            <img src="./imgs/RevueltoSV_00-Mecha-H_Card-Gearbox-last-optim.jpg" alt="Revuelto SV Engine">
+        </div>
+        <div class="split-content">
+            <p class="section-label">POWERTRAIN</p>
+            <h3>HEART OF A MONSTER</h3>
+            <p>
+                At the core lies the legendary mid-mounted V12 engine paired with an 8-speed dual-clutch transmission
+                and dual front axial-flux electric motors. This architecture provides dynamic torque vectoring and
+                instantaneous acceleration out of any corner.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================== TABELA DE ESPECIFICAÇÕES TÉCNICAS ===================== -->
+    <section class="sv-section sv-specs">
+        <div class="container">
+            <p class="section-label text-center">TECHNICAL DATA</p>
+            <h2 class="text-center">SPECIFICATIONS</h2>
+
+            <!-- Tabela com os dados técnicos do carro (motor, potência, câmbio, velocidade, etc.) -->
+            <div class="specs-table-wrapper">
+                <table class="sv-specs-table">
+                    <tbody>
+                        <tr>
+                            <td>DISPLACEMENT</td>
+                            <td>6,498 cm³ (397 cu in)</td>
+                        </tr>
+                        <tr>
+                            <td>ENGINE TYPE</td>
+                            <td>V12 Naturally Aspirated + 3 Electric Motors</td>
+                        </tr>
+                        <tr>
+                            <td>COMBINED MAX POWER</td>
+                            <td>1065 CV (783 kW) @ 9,250 RPM</td>
+                        </tr>
+                        <tr>
+                            <td>TRANSMISSION</td>
+                            <td>8-Speed Dual Clutch Automatic</td>
+                        </tr>
+                        <tr>
+                            <td>DRIVE SYSTEM</td>
+                            <td>All-Wheel Drive (AWD with Torque Vectoring)</td>
+                        </tr>
+                        <tr>
+                            <td>0-100 KM/H (0-62 MPH)</td>
+                            <td>2.4 seconds</td>
+                        </tr>
+                        <tr>
+                            <td>TOP SPEED</td>
+                            <td>&gt;350 km/h (217 mph)</td>
+                        </tr>
+                        <tr>
+                            <td>CHASSIS</td>
+                            <td>Carbon Fiber Monofuselage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botão de chamada para ação: abre o configurador em uma nova aba -->
+            <!-- target="_blank" abre em nova aba; rel="noopener noreferrer" é uma medida de segurança para esse tipo de link -->
+            <div class="cta-wrapper">
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="btn-discover btn-large">
+                    OPEN CONFIGURATOR <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <!-- Rodapé simples, apenas com o texto de copyright (mais enxuto que o das outras páginas) -->
+    <footer class="sv-footer">
+        <p>© 2026 Automobili Lamborghini S.p.A. All rights reserved.</p>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,816 @@
+/* Variáveis de cor reutilizadas em todo o site (evita repetir os códigos hexadecimais) */
+:root {
+  --fundo: #181818;
+  --branco: #ffffff;
+  --cinza: #9a9a9a;
+  --cinza-linha: #555555;
+  --amarelo: #ffc000;
+}
+
+/* Reset básico: zera margens/paddings padrão e faz o box-sizing considerar
+   padding/border dentro da largura/altura definidas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--branco);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+/* Links herdam a cor do elemento pai e não ficam sublinhados por padrão */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Imagens nunca ultrapassam a largura do container; display: block remove
+   espaço extra que aparece abaixo de imagens inline por padrão */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Estilo padrão para ícones SVG: sem preenchimento, só o contorno (stroke),
+   usando a cor do texto atual (currentColor) */
+.icone,
+.icone-botao {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ===================== CABEÇALHO (compartilhado entre páginas) ===================== */
+.cabecalho {
+  background-color: var(--fundo);
+  height: 66px;
+}
+
+/* Container interno do cabeçalho, com largura máxima e position: relative
+   para servir de referência à logo centralizada abaixo */
+.cabecalho-conteudo {
+  max-width: 980px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--branco);
+}
+
+.menu .icone {
+  color: var(--cinza);
+}
+
+/* Logo centralizada de forma absoluta: left: 50% + translateX(-50%) é a técnica
+   clássica para centralizar um elemento independente da largura do texto ao lado */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.icones-direita {
+  display: flex;
+  gap: 18px;
+  color: var(--cinza);
+}
+
+.icones-direita a:hover,
+.menu:hover .icone {
+  color: var(--branco);
+}
+
+
+/* ===================== pagina 1 (index) - parte dos carros ===================== */
+.configurador {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px 60px;
+}
+
+/* Esconde visualmente os inputs de rádio das abas — eles continuam funcionais,
+   só não aparecem na tela (a seleção é feita clicando nos <label>) */
+.configurador input[type="radio"] {
+  display: none;
+}
+
+.abas {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Cada aba é um <label> ligado a um input de rádio (via "for"), com uma
+   linha inferior cinza que ganha destaque quando a aba está ativa */
+.abas label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cinza);
+  padding: 0 18px 16px;
+  border-bottom: 1px solid var(--cinza-linha);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.abas label:hover {
+  color: var(--branco);
+}
+
+/* Truque de "abas com CSS puro": usando o seletor de irmão geral (~), quando o
+   input de rádio correspondente está marcado (:checked), o label daquela aba
+   (identificado pelo atributo "for") recebe a cor branca e a borda amarela.
+   Tudo isso sem precisar de nenhuma linha de JavaScript. */
+#aba1:checked ~ .abas label[for="aba1"],
+#aba2:checked ~ .abas label[for="aba2"],
+#aba3:checked ~ .abas label[for="aba3"],
+#aba4:checked ~ .abas label[for="aba4"],
+#aba5:checked ~ .abas label[for="aba5"] {
+  color: var(--branco);
+  font-weight: 600;
+  border-bottom: 2px solid var(--amarelo);
+}
+
+/* Por padrão, todos os painéis de conteúdo ficam escondidos */
+.painel {
+  display: none;
+  padding-top: 90px;
+}
+
+/* Mesmo truque do CSS puro: o painel correspondente ao rádio marcado é exibido.
+   Este é o mecanismo que faz o "conteúdo da aba" mudar sem JavaScript */
+#aba1:checked ~ .paineis .painel1,
+#aba2:checked ~ .paineis .painel2,
+#aba3:checked ~ .paineis .painel3,
+#aba4:checked ~ .paineis .painel4,
+#aba5:checked ~ .paineis .painel5 {
+  display: block;
+}
+
+/* Layout do painel: coluna de texto mais estreita à esquerda, imagem do carro maior à direita */
+.painel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  align-items: center;
+  gap: 20px;
+  min-height: 360px;
+}
+
+.subtitulo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 22px;
+}
+
+/* Título grande usando fonte condensada/impactante (Anton), típica de nomes de modelos */
+.titulo {
+  font-family: "Anton", Impact, "Arial Narrow", sans-serif;
+  font-weight: 400;
+  font-size: 76px;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+}
+
+.botoes {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  height: 54px;
+  padding: 0 18px;
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Botão principal preenchido em amarelo, com um tom levemente diferente no hover */
+.botao-amarelo {
+  background-color: var(--amarelo);
+  color: #000000;
+}
+
+.botao-amarelo:hover {
+  background-color: #ffd23f;
+}
+
+/* Botão secundário só com contorno, inverte as cores ao passar o mouse */
+.botao-contorno {
+  border: 1px solid var(--branco);
+  color: var(--branco);
+}
+
+.botao-contorno:hover {
+  background-color: var(--branco);
+  color: #000000;
+}
+
+.painel-carro {
+  width: 100%;
+  height: auto;
+}
+
+.aviso {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 50px;
+}
+
+/* Ajustes responsivos para telas de até 800px (tablets/celulares) */
+@media (max-width: 800px) {
+  .painel {
+    padding-top: 50px;
+  }
+
+  /* O grid de 2 colunas do painel vira 1 coluna só, empilhando texto e imagem */
+  .painel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo {
+    font-size: 54px;
+  }
+
+  .abas {
+    gap: 8px;
+  }
+
+  .abas label {
+    padding: 0 10px 12px;
+    font-size: 12px;
+  }
+}
+
+
+/* ===================== Pagina 2 (configurator.html) ===================== */
+
+.pagina-config {
+  background-color: #111214;
+}
+
+/* "Palco" onde o carro é exibido: altura calculada descontando a altura do
+   cabeçalho (54px). O fundo usa dois gradientes radiais sobrepostos para
+   simular um piso/estúdio de fotografia com iluminação suave */
+.palco {
+  position: relative;
+  height: calc(100vh - 54px);
+  min-height: 640px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 35% at 50% 88%, #6b6f74 0%, #3b3e42 45%, transparent 100%),
+    radial-gradient(ellipse at 50% 40%, #2c2e31 0%, #17181a 70%);
+}
+
+/* Esconde os inputs de rádio que controlam a cor selecionada do carro
+   (a seleção acontece clicando nas amostras de cor, que são <label>s) */
+.palco > input[type="radio"] {
+  display: none;
+}
+
+/* Bloco do canto superior esquerdo: botão de voltar + nome do modelo + specs */
+.cfg-topo {
+  position: absolute;
+  top: 38px;
+  left: 40px;
+  display: flex;
+  gap: 22px;
+  z-index: 2;
+}
+
+.cfg-voltar {
+  width: 44px;
+  height: 44px;
+  background-color: #f4f4f4;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Nome do modelo em fonte condensada e bem grande */
+.cfg-nome {
+  font-family: "Anton", Impact, "Arial Narrow", sans-serif;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 0.95;
+}
+
+/* O "SV" (ou variante) do nome, em fonte diferente e menor, ao lado do nome principal */
+.cfg-nome span {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  margin-left: 10px;
+}
+
+.cfg-specs {
+  list-style: none;
+  display: flex;
+  margin-top: 32px;
+}
+
+/* Cada especificação separada por uma linha vertical à esquerda */
+.cfg-specs li {
+  padding: 0 20px;
+  border-left: 2px solid var(--branco);
+}
+
+/* O primeiro item não tem a linha divisória (pois não há nada antes dele) */
+.cfg-specs li:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.cfg-specs small {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cfg-specs strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+/* Coluna de ferramentas no canto superior direito (idioma e L-Code) */
+.cfg-ferramentas {
+  position: absolute;
+  top: 38px;
+  right: 40px;
+  width: 52px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.cfg-ferramentas a {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+}
+
+/* Linha divisória entre os itens da coluna de ferramentas (exceto antes do primeiro) */
+.cfg-ferramentas a + a {
+  border-top: 1px solid #d0d0d0;
+}
+
+.cfg-ferramentas a:hover {
+  background-color: #e2e2e2;
+}
+
+.cfg-lcode-botao {
+  gap: 1px;
+}
+
+.cfg-lcode-botao span {
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.cfg-lcode-botao svg {
+  align-self: flex-end;
+  margin-bottom: 18px;
+  stroke-width: 3;
+}
+
+/* Container centralizado (horizontal e verticalmente) onde fica a imagem do carro */
+.cfg-carro {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: min(60vw, 900px); /* nunca passa de 900px, mas encolhe em telas menores */
+}
+
+/* Todas as imagens de cor começam escondidas */
+.cfg-carro img {
+  display: none;
+  width: 100%;
+}
+
+/* Truque de "trocar imagem via CSS puro": o input de rádio da cor selecionada
+   (definido no HTML) faz, através do seletor de irmão geral (~), a imagem
+   correspondente aparecer. É esse mecanismo que faz a foto do carro mudar de
+   cor ao clicar numa amostra, sem nenhum JavaScript */
+#cor-padrao:checked ~ .cfg-carro .carro-padrao,
+#cor-azul:checked ~ .cfg-carro .carro-azul,
+#cor-vermelho:checked ~ .cfg-carro .carro-vermelho,
+#cor-branco:checked ~ .cfg-carro .carro-branco {
+  display: block;
+}
+
+/* Caixa com as amostras de cor e o nome da cor selecionada, no canto inferior esquerdo */
+.cfg-cores {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  width: 363px;
+  background-color: #1c1c1c;
+  padding: 10px 26px 22px;
+  z-index: 2;
+}
+
+.cfg-amostras {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+}
+
+/* clip-path corta a amostra em formato de hexágono alongado, em vez de um retângulo comum */
+.amostra,
+.amostra span {
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+}
+
+.amostra {
+  width: 88px;
+  height: 44px;
+  padding: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.amostra span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Cada amostra usa um gradiente diagonal para simular o brilho/reflexo da pintura metálica */
+.amostra-azul span {
+  background: linear-gradient(135deg, #e3ebf0 0%, #9fb3c0 40%, #e9f0f4 60%, #8ea3b1 100%);
+}
+
+.amostra-padrao span {
+  background: linear-gradient(135deg, #e4e4e4 0%, #898d90 40%, #c9cbcc 60%, #6f7376 100%);
+}
+
+.amostra-vermelho span {
+  background: linear-gradient(135deg, #f0404f 0%, #b3111f 40%, #e3283a 60%, #8c0a16 100%);
+}
+
+.amostra-branco span {
+  background: linear-gradient(135deg, #ffffff 0%, #d6d6d6 40%, #f7f7f7 60%, #c9c9c9 100%);
+}
+
+/* A amostra da cor atualmente selecionada ganha um fundo amarelo (como uma borda de destaque,
+   já que o "padding" da .amostra deixa esse fundo visível ao redor do gradiente) */
+#cor-padrao:checked ~ .cfg-cores .amostra-padrao,
+#cor-azul:checked ~ .cfg-cores .amostra-azul,
+#cor-vermelho:checked ~ .cfg-cores .amostra-vermelho,
+#cor-branco:checked ~ .cfg-cores .amostra-branco {
+  background-color: var(--amarelo);
+}
+
+/* O nome de cada cor começa escondido */
+.nome-cor {
+  display: none;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 22px;
+}
+
+/* Mesmo truque: mostra apenas o nome da cor correspondente ao rádio marcado */
+#cor-padrao:checked ~ .cfg-cores .nome-padrao,
+#cor-azul:checked ~ .cfg-cores .nome-azul,
+#cor-vermelho:checked ~ .cfg-cores .nome-vermelho,
+#cor-branco:checked ~ .cfg-cores .nome-branco {
+  display: block;
+}
+
+/* Botão "Iniciar configuração", no canto inferior direito.
+   "cursor: default" indica que, neste protótipo, ele ainda não tem uma ação real */
+.cfg-start {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  height: 60px;
+  padding: 0 28px;
+  background-color: var(--amarelo);
+  color: #000000;
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+  z-index: 2;
+}
+
+.cfg-rodape {
+  height: 54px;
+  background-color: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.cfg-rodape a {
+  color: var(--amarelo);
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* ===================== MODAIS (idioma e L-Code) ===================== */
+/* Escondido por padrão (display: none), cobre a tela toda com fundo escurecido */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Quando a URL aponta para o id do modal (ex: "#modal-idioma"), o :target o exibe como flex,
+   centralizando a caixa do modal na tela */
+.modal:target {
+  display: flex;
+}
+
+.modal-caixa {
+  background-color: #f4f4f4;
+  color: #1a1a1a;
+  padding: 20px;
+  max-width: 94vw;
+}
+
+.modal-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.modal-topo h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.modal-topo p {
+  font-size: 15px;
+  color: #555555;
+  margin-top: 8px;
+}
+
+.modal-fechar {
+  width: 38px;
+  height: 38px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-btn {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.modal-btn-contorno {
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+/* Botão "desativado" visualmente (cinza), usado em ações que ainda não têm lógica real */
+.modal-btn-desativado {
+  background-color: #c4c4c4;
+  color: #6d6d6d;
+  cursor: default;
+}
+
+.modal-idioma {
+  width: 456px;
+  padding-bottom: 0;
+}
+
+.lista-idiomas {
+  margin-top: 12px;
+}
+
+/* Cada linha de idioma: bandeira + nome + rádio button, com linha divisória embaixo */
+.idioma {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 20px;
+  border-bottom: 1px solid #d8d8d8;
+  cursor: pointer;
+}
+
+.idioma span {
+  flex: 1;
+  font-size: 16px;
+}
+
+.bandeira {
+  width: 28px;
+  height: 18px;
+}
+
+/* accent-color muda a cor do próprio rádio button nativo do navegador */
+.idioma input {
+  width: 20px;
+  height: 20px;
+  accent-color: #1a1a1a;
+  cursor: pointer;
+}
+
+/* Botões "Cancelar"/"Confirmar" lado a lado, ocupando a largura total do modal
+   (margin negativa compensa o padding do .modal-caixa) */
+.modal-botoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-top: 1px solid #d8d8d8;
+  margin: 0 -20px;
+  padding: 20px;
+}
+
+.modal-lcode {
+  width: 727px;
+}
+
+/* Modal L-Code dividido em 2 colunas iguais */
+.lcode-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 16px;
+}
+
+/* Linha vertical separando as duas colunas do modal L-Code */
+.lcode-coluna:first-child {
+  padding-right: 32px;
+  border-right: 1px solid #cccccc;
+}
+
+.lcode-coluna:last-child {
+  padding-left: 20px;
+}
+
+.lcode-coluna h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.lcode-coluna p {
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.lcode-campo {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 13px;
+  margin: 24px 0 40px;
+}
+
+.modal-lcode .modal-btn-desativado {
+  height: 44px;
+}
+
+/* ===================== Responsivo (página do configurador) ===================== */
+/* Em telas de até 800px, o "palco" deixa de ser um layout com elementos
+   posicionados de forma absoluta e passa a ser uma coluna simples empilhada */
+@media (max-width: 800px) {
+  .palco {
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+
+  /* Remove o posicionamento absoluto de todos os blocos, para eles fluírem
+     normalmente um abaixo do outro */
+  .cfg-topo,
+  .cfg-ferramentas,
+  .cfg-carro,
+  .cfg-cores,
+  .cfg-start {
+    position: static;
+    transform: none;
+  }
+
+  /* A coluna de ferramentas (idioma/L-Code) vira uma linha horizontal no topo */
+  .cfg-ferramentas {
+    flex-direction: row;
+    width: auto;
+    align-self: flex-end;
+    order: -1;
+  }
+
+  .cfg-ferramentas a {
+    width: 52px;
+  }
+
+  .cfg-ferramentas a + a {
+    border-top: none;
+    border-left: 1px solid #d0d0d0;
+  }
+
+  .cfg-nome {
+    font-size: 60px;
+  }
+
+  .cfg-specs strong {
+    font-size: 18px;
+  }
+
+  .cfg-carro {
+    width: 100%;
+  }
+
+  .cfg-cores {
+    width: 100%;
+  }
+
+  .cfg-start {
+    justify-content: center;
+  }
+
+  .cfg-rodape {
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+
+  /* As 2 colunas do modal L-Code também empilham em telas pequenas */
+  .lcode-colunas {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .lcode-coluna:first-child {
+    padding-right: 0;
+    border-right: none;
+  }
+
+  .lcode-coluna:last-child {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,398 @@
+/* ==========================================
+   1. CONFIGURAÇÕES GERAIS E RESET
+   ========================================== */
+/* Zera margens/paddings padrão e faz o box-sizing considerar padding/border
+   dentro da largura/altura definidas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fundo preto, texto branco (tema dark), fonte padrão Roboto.
+   overflow-x: hidden evita rolagem horizontal indesejada */
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Remove o sublinhado padrão dos links e faz a cor do texto herdar do elemento pai */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================
+   2. HEADER / NAVEGAÇÃO
+   ========================================== */
+/* Header fixo no topo, com gradiente escuro que desaparece, para ficar
+   legível sobre a imagem/vídeo do hero */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.menu-btn {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.3s;
+}
+
+.menu-btn:hover {
+  opacity: 0.7;
+}
+
+/* Ícone de hambúrguer feito com 3 divs (spans) empilhadas via flex-direction: column */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 16px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+/* Logo Aumentada */
+.logo img {
+  height: 58px;
+  width: auto;
+}
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.acoes svg {
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.acoes svg:hover {
+  opacity: 0.7;
+}
+
+/* ==========================================
+   3. BOTÃO DISCOVER MORE
+   ========================================== */
+/* Botão com apenas contorno (transparente), inverte as cores ao passar o mouse */
+.btn-discover {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 16px 36px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-discover:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ==========================================
+   4. PÁGINA DEDICADA: REVUELTO SV
+   ========================================== */
+
+/* Hero Banner */
+/* Ocupa a tela toda (100vh) e alinha o conteúdo na parte de baixo (align-items: flex-end) */
+.sv-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 60px 80px 60px;
+}
+
+/* Camada de fundo do hero, onde ficam a imagem ou o vídeo */
+.sv-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Tanto vídeo quanto imagem de fundo cobrem toda a área, cortando proporcionalmente */
+.sv-hero-bg video,
+.sv-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradiente escuro sobre a imagem/vídeo, mais forte embaixo, para destacar o texto que fica na base */
+.overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.5) 100%);
+  z-index: 2;
+}
+
+.sv-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+}
+
+.tagline {
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #a0a0a0;
+  margin-bottom: 8px;
+}
+
+.sv-hero-content h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 88px;
+  line-height: 0.95;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #dddddd;
+  margin-bottom: 40px;
+}
+
+/* Estatísticas rápidas (potência, 0-100, velocidade máx.) lado a lado, com linha divisória acima */
+.sv-quick-stats {
+  display: flex;
+  gap: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 25px;
+}
+
+.stat .num {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stat .label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #888888;
+}
+
+/* Seções Gerais */
+.sv-section {
+  padding: 120px 60px;
+  background-color: #000000;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #888888;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sv-overview h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #cccccc;
+  max-width: 800px;
+}
+
+/* Blocos Divididos (Imagem + Texto) */
+/* Layout flex de 2 colunas: imagem de um lado, texto do outro */
+.sv-feature-split {
+  display: flex;
+  min-height: 80vh;
+  background-color: #050505;
+}
+
+/* A classe "reverse" inverte a ordem: texto passa a vir antes da imagem visualmente */
+.sv-feature-split.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Ambas as colunas dividem o espaço igualmente (flex: 1) */
+.split-image, .split-content {
+  flex: 1;
+}
+
+.split-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.split-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+}
+
+.split-content h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.split-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #aaaaaa;
+}
+
+/* Tabela de Especificações */
+.specs-table-wrapper {
+  max-width: 900px;
+  margin: 50px auto;
+}
+
+/* border-collapse: collapse une as bordas das células, evitando espaçamento duplo entre elas */
+.sv-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sv-specs-table td {
+  padding: 20px 10px;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* Primeira coluna (nome da especificação): cinza, em negrito, com largura fixa de 40% */
+.sv-specs-table td:first-child {
+  color: #777777;
+  font-weight: 700;
+  width: 40%;
+}
+
+/* Segunda coluna (valor da especificação): branca */
+.sv-specs-table td:last-child {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.cta-wrapper {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Rodapé */
+.sv-footer {
+  padding: 40px 60px;
+  background-color: #000000;
+  border-top: 1px solid #111111;
+  text-align: center;
+  font-size: 11px;
+  color: #555555;
+  letter-spacing: 1px;
+}
+
+/* Responsividade */
+/* Ajustes para telas com até 900px de largura (tablets/celulares) */
+@media (max-width: 900px) {
+  .sv-hero {
+    padding: 0 25px 60px 25px;
+  }
+  .sv-hero-content h1 {
+    font-size: 52px;
+  }
+  .sv-quick-stats {
+    gap: 25px;
+  }
+  /* Os blocos divididos (imagem + texto), incluindo os invertidos, passam a empilhar verticalmente */
+  .sv-feature-split, .sv-feature-split.reverse {
+    flex-direction: column;
+  }
+  .split-content {
+    padding: 40px 25px;
+  }
+}
+
+/* HEADER E LOGO CLICÁVEL */
+/* ATENÇÃO: este é um SEGUNDO bloco de regras para "header" e "logo", declarado
+   depois do primeiro (mais acima no arquivo). Como o CSS lê de cima para baixo
+   e aplica a regra mais recente em caso de empate de especificidade, estas
+   propriedades aqui SOBRESCREVEM as equivalentes do header definido na seção 2
+   (por exemplo: height, padding, e também a altura da logo em ".logo img"). */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  z-index: 9999; /* Garante que fique por cima de tudo */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.logo a {
+  display: block;
+  cursor: pointer;
+  pointer-events: auto; /* Força a ativação do clique */
+}
+
+.logo img {
+  display: block;
+  height: 60px; /* Altere este valor para ajustar o tamanho da sua logo */
+  width: auto;
+  pointer-events: auto;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo a:hover img {
+  opacity: 0.8;
+  transform: scale(1.02);
+}

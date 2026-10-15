@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Miura SV | Lamborghini</title>
+
+    <!-- Estilos próprios da página do Miura SV -->
+    <link rel="stylesheet" href="miura-sv.css">
+</head>
+
+<body>
+
+<!-- ===================== CABEÇALHO ===================== -->
+<header>
+
+    <!-- Botão MENU: leva para a âncora "#menuOverlay" (menu overlay logo abaixo) -->
+    <!-- Ícone de "hambúrguer" desenhado com 3 linhas via SVG -->
+    <a href="#menuOverlay" class="menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M4 5h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 19h16"></path>
+
+        </svg>
+
+        <span>MENU</span>
+    </a>
+
+
+    <!-- Logo da Lamborghini, com link para a página inicial (um nível acima, pois esta página está numa subpasta) -->
+    <a href="../index.html" class="logo">
+        <img src="../imgs/logo_header_01.png.svg" alt="Lamborghini">
+    </a>
+
+
+    <!-- Ícones de ação: chat e busca -->
+    <div class="acoes">
+
+        <!-- Ícone de chat: abre o overlay do chat via âncora "#chat" (definido no fim da página) -->
+        <a href="#chat" class="chat" aria-label="Chat">
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+
+                <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path>
+
+            </svg>
+
+        </a>
+
+
+        <!-- Ícone de lupa: link para a página de busca (um nível acima) -->
+        <a href="../search.html" class="lupa" aria-label="Buscar">
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+
+            </svg>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ===================== MENU OVERLAY ===================== -->
+<!-- Fica escondido por padrão via CSS e aparece quando a URL aponta para "#menuOverlay" -->
+<!-- MENU -->
+
+<div class="menu-overlay" id="menuOverlay">
+
+    <!-- Cabeçalho do overlay com botão de fechar -->
+    <div class="menu-header">
+
+        <a href="#" class="close-btn">
+            ✕ MENU
+        </a>
+
+    </div>
+
+
+    <div class="menu-content">
+
+        <!-- Coluna 1: Home, Models, Beyond + subitens -->
+        <div class="menu-column">
+
+            <a href="../index.html" class="main-link">
+                HOME
+            </a>
+
+            <a href="#" class="main-link">
+                MODELS
+            </a>
+
+            <a href="#" class="main-link">
+                BEYOND
+            </a>
+
+            <hr>
+
+            <a href="#" class="sub-link">
+                Design
+            </a>
+
+            <a href="#" class="sub-link">
+                Financial services
+            </a>
+
+            <a href="#" class="sub-link">
+                Lounge
+            </a>
+
+        </div>
+
+
+        <!-- Coluna 2: Ownership, Company, Store + subitens -->
+        <div class="menu-column">
+
+            <a href="#" class="main-link">
+                OWNERSHIP
+            </a>
+
+            <a href="#" class="main-link">
+                COMPANY
+            </a>
+
+            <a href="#" class="main-link">
+                STORE
+            </a>
+
+            <hr>
+
+            <a href="#" class="sub-link">
+                Sustainability
+            </a>
+
+            <a href="../warranty-extension.html" class="sub-link">
+                Warranty extension
+            </a>
+
+            <a href="#" class="sub-link">
+                Club
+            </a>
+
+        </div>
+
+
+        <!-- Coluna 3: Dealerships, Motorsport, News + subitens -->
+        <div class="menu-column">
+
+            <a href="#" class="main-link">
+                DEALERSHIPS
+            </a>
+
+            <a href="#" class="main-link">
+                MOTORSPORT
+            </a>
+
+            <a href="#" class="main-link">
+                NEWS
+            </a>
+
+            <hr>
+
+            <a href="../history.html" class="sub-link">
+                History
+            </a>
+
+            <a href="#" class="sub-link">
+                Driving Programs
+            </a>
+
+            <a href="#" class="sub-link">
+                Podcast
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+<main>
+
+    <!-- ===================== HERO (BANNER PRINCIPAL) ===================== -->
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <!-- Imagem de fundo do banner -->
+        <img src="../imgs/miura.jpg" alt="Lamborghini Miura SV">
+
+        <!-- Camada escura/gradiente sobre a imagem para melhorar a legibilidade do texto -->
+        <div class="hero-overlay"></div>
+
+
+        <!-- Texto e chamada para ação sobre o banner -->
+        <div class="hero-content">
+
+            <p>WITH THE ASTRONAUT PAOLO NESPOLI</p>
+
+            <h1>MIURA SV</h1>
+
+            <span>THE LEGENDARY SUPERCAR</span>
+
+            <!-- Rola a página até a seção "history" (âncora #history) -->
+            <a href="#history" class="discover">
+                DISCOVER MORE
+            </a>
+
+        </div>
+
+
+        <!-- Linhas diagonais decorativas usadas no design da seção -->
+        <div class="diagonal-line line-1"></div>
+        <div class="diagonal-line line-2"></div>
+
+    </section>
+
+
+    <!-- ===================== SEÇÃO 01: HISTORY ===================== -->
+    <!-- HISTORY -->
+
+    <section class="section history" id="history">
+
+        <!-- Número da seção, usado como elemento visual/decorativo -->
+        <div class="section-number">
+            01
+        </div>
+
+        <div class="section-text">
+
+            <p class="label">
+                THE BEGINNING OF A LEGEND
+            </p>
+
+            <h2>
+                MIURA
+            </h2>
+
+            <h3>
+                A REVOLUTION ON FOUR WHEELS
+            </h3>
+
+            <p>
+                Presented in 1966, the Lamborghini Miura changed
+                the world of high-performance sports cars.
+                Its central V12 engine and revolutionary design
+                established a new concept of the supercar.
+            </p>
+
+        </div>
+
+        <div class="section-image">
+
+            <img src="../imgs/miura.jpg" alt="Miura SV">
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== SEÇÃO 02: DESIGN ===================== -->
+    <!-- DESIGN -->
+
+    <section class="section design">
+
+        <!-- Nesta seção a imagem vem antes do texto (layout invertido em relação à seção History) -->
+        <div class="section-image">
+
+            <img src="../imgs/miura.jpg" alt="Miura design">
+
+        </div>
+
+
+        <div class="section-text">
+
+            <div class="section-number">
+                02
+            </div>
+
+            <p class="label">
+                ICONIC DESIGN
+            </p>
+
+            <h2>
+                PURE<br>
+                FORM
+            </h2>
+
+            <p>
+                The Miura became famous for its low and aggressive
+                silhouette. Every line was created to express
+                speed, elegance and performance.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== SEÇÃO 03: PERFORMANCE ===================== -->
+    <!-- PERFORMANCE -->
+
+    <section class="performance">
+
+        <div class="performance-title">
+
+            <div class="section-number">
+                03
+            </div>
+
+            <p class="label">
+                PERFORMANCE
+            </p>
+
+            <h2>
+                V12<br>
+                POWER
+            </h2>
+
+        </div>
+
+
+        <!-- Grade de especificações técnicas do motor -->
+        <div class="specifications">
+
+            <div class="spec">
+
+                <span>ENGINE</span>
+
+                <strong>V12</strong>
+
+            </div>
+
+
+            <div class="spec">
+
+                <span>DISPLACEMENT</span>
+
+                <strong>3.9 L</strong>
+
+            </div>
+
+
+            <div class="spec">
+
+                <span>POWER</span>
+
+                <strong>385 CV</strong>
+
+            </div>
+
+
+            <div class="spec">
+
+                <span>TOP SPEED</span>
+
+                <strong>290 KM/H</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== SEÇÃO FINAL ===================== -->
+    <!-- FINAL -->
+
+    <section class="final-section">
+
+        <p>THE LEGEND LIVES ON</p>
+
+        <h2>
+            MIURA SV
+        </h2>
+
+        <!-- Link de volta para a página inicial -->
+        <a href="../index.html">
+            BACK TO HOME
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- ===================== OVERLAY DO CHAT (ASK ME) ===================== -->
+<!-- Fica escondido por padrão via CSS e aparece quando a URL aponta para "#chat" -->
+<!-- (ativado pelo ícone de chat no header) -->
+<!-- CHAT -->
+
+<div class="chat-overlay" id="chat">
+
+    <div class="chat-container">
+
+        <!-- Cabeçalho do chat com título e botão de fechar -->
+        <div class="chat-header">
+
+            <h2>ASK ME</h2>
+
+            <a href="#" class="chat-close">
+                ✕
+            </a>
+
+        </div>
+
+
+        <div class="chat-body">
+
+            <!-- Mensagem de boas-vindas do assistente virtual -->
+            <div class="chat-msg">
+
+                <p>
+                    Welcome to the Lamborghini world!
+                    I'm your Virtual Assistant, ready to guide
+                    you through the world of Lamborghini.
+                </p>
+
+            </div>
+
+
+            <!-- Botões de tópicos rápidos para o usuário escolher -->
+            <div class="chat-topics">
+
+                <button class="topic-btn">
+                    Models
+                </button>
+
+                <button class="topic-btn">
+                    Exclusive experiences
+                </button>
+
+                <button class="topic-btn">
+                    Customization and services
+                </button>
+
+                <button class="topic-btn">
+                    Discover Lamborghini
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Campo de input inferior para digitar e enviar a pergunta -->
+        <div class="chat-footer">
+
+            <input type="text"
+                placeholder="Ask your question here">
+
+            <button class="chat-send">
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
